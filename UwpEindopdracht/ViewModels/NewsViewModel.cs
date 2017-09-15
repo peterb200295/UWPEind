@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using UwpEindopdracht.Helpers;
 using UwpEindopdracht.Models;
 using UwpEindopdracht.Services;
 
@@ -10,7 +12,7 @@ namespace UwpEindopdracht.ViewModels
     {
         public static NewsViewModel SingleInstance { get; } = new NewsViewModel();
 
-        public List<Article> Articles { get; set; }
+        public ObservableIncrementalLoadingCollection<Article> Articles { get; set; }
 
         private NewsViewModel()
         {
@@ -20,6 +22,7 @@ namespace UwpEindopdracht.ViewModels
             //Articles.Add(new Article { Title = "Artikel 4", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
             //Articles.Add(new Article { Title = "Artikel 5", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
 
+            Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
             FillArticles();
         }
 
@@ -27,6 +30,26 @@ namespace UwpEindopdracht.ViewModels
         {
            var result = await Backend.GetDataFromBackendAsync();
             Articles = result.Results;
+        }
+
+        private async Task<ArticlesResult> ListOfItemsOnLoadMoreItemsAsyncEvent(int firstId)
+        {
+            var list = new List<string>();
+            var result = await Backend.GetDataFromBackendAsync(int requestID);
+
+
+            var response = new IncrementalLoadingResponse<string>
+            {
+                NextId = firstId + 50,
+                Items = list
+            };
+
+            for (var i = firstId; i < response.NextId; ++i)
+            {
+                list.Add("This is item " + i);
+            }
+
+            return response;
         }
     }
 }

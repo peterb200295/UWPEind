@@ -95,7 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ObservableIncrementalLoadingCollection.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\IncrementalLoadingResponse.cs" />
     <Compile Include="Services\ArticlesResult.cs" />
     <Compile Include="Services\BackEnd.cs" />
     <Compile Include="Models\Category.cs" />
@@ -139,7 +141,9 @@
       <Version>10.0.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
