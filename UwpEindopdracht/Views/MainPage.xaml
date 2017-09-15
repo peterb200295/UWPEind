@@ -12,8 +12,15 @@
             <Button FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
             <TextBlock Text="Inholland News Reader" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <ListView>
-            
+        <ListView ItemsSource="{Binding Articles}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <GridView>
+                        <Image Source="{Binding ImageURL}" Width="200px" Height="200px" HorizontalAlignment="Left"></Image>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                    </GridView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackPanel>
 </Page>
