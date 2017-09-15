@@ -29,27 +29,22 @@ namespace UwpEindopdracht.ViewModels
         private async void FillArticles()
         {
            var result = await Backend.GetDataFromBackendAsync();
-            Articles = result.Results;
+            foreach (var item in result.Results)
+            {
+                Articles.Add(item);
+            }
         }
 
-        private async Task<ArticlesResult> ListOfItemsOnLoadMoreItemsAsyncEvent(int firstId)
+        private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
         {
-            var list = new List<string>();
-            var result = await Backend.GetDataFromBackendAsync(int requestID);
+            var result = await Backend.GetDataFromBackendAsync(requestId);
 
-
-            var response = new IncrementalLoadingResponse<string>
+            ObservableIncrementalLoadingCollection<Article> list = new ObservableIncrementalLoadingCollection<Article>();
+            foreach (var item in result.Results)
             {
-                NextId = firstId + 50,
-                Items = list
-            };
-
-            for (var i = firstId; i < response.NextId; ++i)
-            {
-                list.Add("This is item " + i);
+                list.Add(item);
             }
-
-            return response;
+            return list;
         }
     }
 }

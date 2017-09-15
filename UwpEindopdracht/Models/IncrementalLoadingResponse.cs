@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UwpEindopdracht.Models
 {
-    public sealed class IncrementalLoadingResponse<T>
+    public sealed class ArticlesResult<T>
     {
         public int NextId { get; set; }
         public IEnumerable<T> Items { get; set; }

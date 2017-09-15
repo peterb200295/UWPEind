@@ -15,7 +15,7 @@ namespace UwpEindopdracht.Helpers
 {
     public class ObservableIncrementalLoadingCollection<T> : ObservableCollection<T>, ISupportIncrementalLoading
     {
-        public delegate Task<IncrementalLoadingResponse<T>> LoadMoreItemsAsyncDelegate(int firstId);
+        public delegate Task<ObservableIncrementalLoadingCollection<T>> LoadMoreItemsAsyncDelegate(int firstId);
         public event LoadMoreItemsAsyncDelegate LoadMoreItemsAsyncEvent;
 
         private bool _reachedEnd;
