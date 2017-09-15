@@ -55,8 +55,8 @@ namespace UwpEindopdracht.Helpers
                     }
                 });
 
-                if (response.NextId <= 0) _reachedEnd = true;
-                _nextId = response.NextId;
+                //if (response.NextId <= 0) _reachedEnd = true;
+                //_nextId = response.NextId;
 
                 return new LoadMoreItemsResult { Count = (uint)response.Items.Count() };
             }).AsAsyncOperation();
