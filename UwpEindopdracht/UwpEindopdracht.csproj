@@ -96,6 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Services\ArticlesResult.cs" />
+    <Compile Include="Services\BackEnd.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
@@ -132,6 +134,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

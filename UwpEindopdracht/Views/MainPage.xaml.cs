@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UwpEindopdracht.Models;
+using UwpEindopdracht.Services;
 using UwpEindopdracht.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,10 +26,12 @@ namespace UwpEindopdracht.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private NewsViewModel VM => NewsViewModel.SingleInstance;
+
         public MainPage()
         {
             this.InitializeComponent();
-            DataContext = new NewsViewModel();
+            DataContext = this;
         }
     }
 }

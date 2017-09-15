@@ -5,20 +5,25 @@
     xmlns:local="using:UwpEindopdracht"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:UwpEindopdracht.Models"
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Background="Black">
-            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
-            <TextBlock Text="Inholland News Reader" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Grid>
-        <ListView ItemsSource="{Binding Articles}">
+        <RelativePanel Background="Black">
+            <Button x:Name="OptionsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
+            <TextBlock RelativePanel.RightOf="OptionsButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
+        </RelativePanel>
+        <ListView ItemsSource="{x:Bind VM.Articles}">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <GridView>
-                        <Image Source="{Binding ImageURL}" Width="200px" Height="200px" HorizontalAlignment="Left"></Image>
-                        <TextBlock Text="{Binding Title}"></TextBlock>
-                    </GridView>
+                <DataTemplate x:DataType="models:Article">
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <Image Source="{x:Bind Image}" Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                        <StackPanel Margin="20">
+                            <TextBlock Text="{x:Bind Title}" FontWeight="ExtraBold" FontSize="20"></TextBlock>
+                            <TextBlock Text="{x:Bind Summary}"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
