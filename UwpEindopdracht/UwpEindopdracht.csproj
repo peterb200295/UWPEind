@@ -101,7 +101,11 @@
     <Compile Include="Services\ArticlesResult.cs" />
     <Compile Include="Services\BackEnd.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="ViewModels\ArticleDetailViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
+    <Compile Include="Views\Article.xaml.cs">
+      <DependentUpon>Article.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Article.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
