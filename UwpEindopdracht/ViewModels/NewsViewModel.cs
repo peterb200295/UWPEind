@@ -14,6 +14,8 @@ namespace UwpEindopdracht.ViewModels
 
         public ObservableIncrementalLoadingCollection<Article> Articles { get; set; }
 
+		private int _nextId;
+
         private NewsViewModel()
         {
             //Articles.Add(new Article { Title = "Artikel 1", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
@@ -23,7 +25,7 @@ namespace UwpEindopdracht.ViewModels
             //Articles.Add(new Article { Title = "Artikel 5", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
 
             Articles = new ObservableIncrementalLoadingCollection<Article>();
-            FillArticles();
+            //FillArticles();
 
             Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
         }
@@ -35,17 +37,25 @@ namespace UwpEindopdracht.ViewModels
             {
                 Articles.Add(item);
             }
-        }
+			_nextId = result.NextId;
+		}
 
-        private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
+		private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
         {
-            var result = await Backend.GetDataFromBackendAsync(requestId);
+			ArticlesResult result;
+			if (_nextId <= 0)
+			{
+				 result = await Backend.GetDataFromBackendAsync();
+			}
+			else
+				 result = await Backend.GetDataFromBackendAsync(_nextId);
 
             ObservableIncrementalLoadingCollection<Article> list = new ObservableIncrementalLoadingCollection<Article>();
             foreach (var item in result.Results)
             {
                 list.Add(item);
             }
+			_nextId = result.NextId;
             return list;
         }
     }
