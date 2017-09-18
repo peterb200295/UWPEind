@@ -26205,11 +26205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Peter\\source\\repos\\UwpEindopdracht\\UwpEindopdracht\\UwpEindopdracht.csproj",
+      "projectUniqueName": "D:\\School\\Repo's\\UWP opdracht\\UwpEindopdracht\\UwpEindopdracht.csproj",
       "projectName": "UwpEindopdracht",
-      "projectPath": "C:\\Users\\Peter\\source\\repos\\UwpEindopdracht\\UwpEindopdracht\\UwpEindopdracht.csproj",
+      "projectPath": "D:\\School\\Repo's\\UWP opdracht\\UwpEindopdracht\\UwpEindopdracht.csproj",
       "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Peter\\source\\repos\\UwpEindopdracht\\UwpEindopdracht\\obj\\",
+      "outputPath": "D:\\School\\Repo's\\UWP opdracht\\UwpEindopdracht\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
