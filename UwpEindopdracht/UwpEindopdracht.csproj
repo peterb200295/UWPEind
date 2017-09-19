@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ObservableIncrementalLoadingCollection.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IncrementalLoadingResponse.cs" />
     <Compile Include="Services\ArticlesResult.cs" />
@@ -103,8 +104,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="ViewModels\ArticleDetailViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
-    <Compile Include="Views\Article.xaml.cs">
-      <DependentUpon>Article.xaml</DependentUpon>
+    <Compile Include="Views\ArticleDetails.xaml.cs">
+      <DependentUpon>ArticleDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -132,7 +133,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\Article.xaml">
+    <Page Include="Views\ArticleDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

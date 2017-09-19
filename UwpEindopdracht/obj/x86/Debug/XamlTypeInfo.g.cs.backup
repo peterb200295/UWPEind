@@ -133,7 +133,7 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[4];
-            _typeNameTable[0] = "UwpEindopdracht.Views.ArticleDetails";
+            _typeNameTable[0] = "UwpEindopdracht.Views.Article";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "UwpEindopdracht.Views.MainPage";
@@ -177,7 +177,7 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_ArticleDetails() { return new global::UwpEindopdracht.Views.ArticleDetails(); }
+        private object Activate_0_Article() { return new global::UwpEindopdracht.Views.ArticleDetails(); }
         private object Activate_3_MainPage() { return new global::UwpEindopdracht.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -190,9 +190,9 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  UwpEindopdracht.Views.ArticleDetails
+            case 0:   //  UwpEindopdracht.Views.Article
                 userType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_ArticleDetails;
+                userType.Activator = Activate_0_Article;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

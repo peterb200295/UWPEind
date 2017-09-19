@@ -446,3 +446,8 @@ D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\qualifiers.txt
 D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\qualifiers.txt.intermediate
 D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\ProjectArchitectures.txt
+D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\Views\ArticleDetails.g.i.cs
+D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\Views\ArticleDetails.g.cs
+D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\Views\ArticleDetails.xaml
+D:\School\Repo's\UWP opdracht\UwpEindopdracht\obj\x86\Debug\Views\ArticleDetails.xbf
+D:\School\Repo's\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Views\ArticleDetails.xbf

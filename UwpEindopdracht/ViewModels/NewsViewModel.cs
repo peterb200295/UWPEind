@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Exercise4.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UwpEindopdracht.Helpers;
 using UwpEindopdracht.Models;
 using UwpEindopdracht.Services;
+using UwpEindopdracht.Views;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace UwpEindopdracht.ViewModels
 {
@@ -50,6 +54,13 @@ namespace UwpEindopdracht.ViewModels
 			}
 			_nextId = result.NextId;
 			return list;
+		}
+
+		//public RelayCommand NavigateToSecondPageCommand { get; } = new RelayCommand(NavigateToSecondPage);
+
+		public void NavigateToSecondPage(int Id)
+		{
+			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), SingleInstance.Articles[Id]);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="UwpEindopdracht.Views.Article"
+    x:Class="UwpEindopdracht.Views.ArticleDetails"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UwpEindopdracht.Views"

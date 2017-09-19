@@ -33,5 +33,10 @@ namespace UwpEindopdracht.Views
             this.InitializeComponent();
             DataContext = this;
         }
-    }
+
+		private void Selection(object sender, TappedRoutedEventArgs e)
+		{
+			VM.NavigateToSecondPage(ListView.SelectedIndex);
+		}
+	}
 }
