@@ -17,7 +17,11 @@
             <Button x:ConnectionId='7' x:Name="OptionsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
             <TextBlock RelativePanel.RightOf="OptionsButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
         </RelativePanel>
-        <ListView x:ConnectionId='2' x:Name="ListView"                                                 Grid.Row="1"                   >
+        <ListView x:ConnectionId='2' x:Name="ListView" 
+                                                                    
+                    Grid.Row="1" 
+                    IsItemClickEnabled="True"
+                                                >
             <ListView.ItemTemplate>
                 <DataTemplate                            >
                     <StackPanel x:ConnectionId='3' Orientation="Horizontal" Margin="0">

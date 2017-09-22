@@ -17,7 +17,11 @@
             <Button x:Name="OptionsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
             <TextBlock RelativePanel.RightOf="OptionsButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
         </RelativePanel>
-        <ListView x:Name="ListView" ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" Grid.Row="1" Tapped="Selection">
+        <ListView x:Name="ListView" 
+                    ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" 
+                    Grid.Row="1" 
+                    IsItemClickEnabled="True"
+                    ItemClick="ArticleSelection">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Article">
                     <StackPanel Orientation="Horizontal" Margin="0">

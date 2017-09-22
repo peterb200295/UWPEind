@@ -58,9 +58,9 @@ namespace UwpEindopdracht.ViewModels
 
 		//public RelayCommand NavigateToSecondPageCommand { get; } = new RelayCommand(NavigateToSecondPage);
 
-		public void NavigateToSecondPage(int Id)
+		public void NavigateToSecondPage(object article)
 		{
-			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), SingleInstance.Articles[Id]);
+			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), (Article)article);
 		}
 	}
 }

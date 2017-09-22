@@ -34,9 +34,9 @@ namespace UwpEindopdracht.Views
             DataContext = this;
         }
 
-		private void Selection(object sender, TappedRoutedEventArgs e)
+		private void ArticleSelection(object sender, ItemClickEventArgs e)
 		{
-			VM.NavigateToSecondPage(ListView.SelectedIndex);
+			VM.NavigateToSecondPage(e.ClickedItem);
 		}
 	}
 }
