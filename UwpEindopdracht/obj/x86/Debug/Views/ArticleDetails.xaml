@@ -13,9 +13,15 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <RelativePanel Background="Black" Grid.Row="0">
-            <Button x:ConnectionId='7' x:Name="OptionsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
-            <TextBlock RelativePanel.RightOf="OptionsButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
+        <RelativePanel Background="DeepPink" Grid.Row="0">
+            <Button x:ConnectionId='7' x:Name="BackButton" 
+                    Content="Back" 
+                    Height="50px" 
+                    Width="50px" 
+                    Foreground="White" 
+                                            
+                    Background="DeepPink"/>
+            <TextBlock RelativePanel.RightOf="BackButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
         </RelativePanel>
         <Image x:ConnectionId='2'                                                 
                Grid.Row="1"

@@ -7,6 +7,7 @@ using UwpEindopdracht.Models;
 using UwpEindopdracht.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +31,7 @@ namespace UwpEindopdracht.Views
 		{
 			this.InitializeComponent();
 			DataContext = this;
+			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 		}
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -52,6 +54,11 @@ namespace UwpEindopdracht.Views
 			var uri = new Uri(article.Url);
 
 			var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+		}
+
+		private void BackButton_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }

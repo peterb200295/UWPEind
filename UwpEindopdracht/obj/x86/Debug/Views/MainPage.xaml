@@ -15,7 +15,7 @@
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <RelativePanel Background="Black" Grid.Row="0">
+                <RelativePanel Background="DeepPink" Grid.Row="0">
                     <Button x:ConnectionId='3' x:Name="MenuButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
@@ -23,10 +23,7 @@
                             Width="50px" 
                                                     
                             Foreground="White" 
-                            Background="DarkSlateGray"></Button>
-                    <TextBlock RelativePanel.RightOf="MenuButton" 
-                               Margin="10, 15" Text="Inholland News Reader" 
-                               Foreground="White"/>
+                            Background="DeepPink"></Button>
                 </RelativePanel>
             </Grid>
         </SplitView.Pane>
@@ -36,7 +33,7 @@
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <RelativePanel Background="Black" Grid.Row="0">
+                <RelativePanel Background="DeepPink" Grid.Row="0">
                     <Button x:ConnectionId='9' x:Name="OptionsButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
@@ -44,7 +41,7 @@
                             Width="50px" 
                                                     
                             Foreground="White" 
-                            Background="DarkSlateGray"></Button>
+                            Background="DeepPink"></Button>
                     <TextBlock RelativePanel.RightOf="OptionsButton" 
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
