@@ -36,7 +36,7 @@ namespace UwpEindopdracht.Views
 
 		private void ArticleSelection(object sender, ItemClickEventArgs e)
 		{
-			VM.NavigateToSecondPage(e.ClickedItem);
+            VM.ArticleOnClick.Execute(e.ClickedItem);
 		}
 	}
 }

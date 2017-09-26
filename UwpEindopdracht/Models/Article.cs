@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UwpEindopdracht.Models
 {
-    public sealed class Article
+	public sealed class Article
     {
         public int Id { get; set; }
         public int Feed { get; set; }

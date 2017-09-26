@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>181779a3-ffec-4b56-870f-4de77af52527</PackageIdentityName>
     <PackageIdentityPublisher>CN=Peter</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
       <PackagePath>entrypoint\UwpEindopdracht.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -388,47 +388,47 @@
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\System.Xml.XmlSerializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
       <PackagePath>UwpEindopdracht.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
       <PackagePath>UwpEindopdracht.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

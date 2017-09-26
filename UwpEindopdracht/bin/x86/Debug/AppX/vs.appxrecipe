@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>181779a3-ffec-4b56-870f-4de77af52527</PackageIdentityName>
     <PackageIdentityPublisher>CN=Peter</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>707B3EB014EC0C198CC1D928A154072990F2FDBD863B603D4AEB759FDD8F1FDB</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>181779a3-ffec-4b56-870f-4de77af52527_1.0.0.0_x86__tp1tpcm9wdwpy</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>181779a3-ffec-4b56-870f-4de77af52527_tp1tpcm9wdwpy!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-18T15:48:57.972</Modified>
+      <Modified>2017-09-26T15:20:09.430</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
       <PackagePath>entrypoint\UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-18T15:48:56.088</Modified>
+      <Modified>2017-09-26T15:20:09.151</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -519,60 +519,60 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T21:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
       <PackagePath>UwpEindopdracht.xr.xml</PackagePath>
-      <Modified>2017-09-18T15:48:55.741</Modified>
+      <Modified>2017-09-26T15:17:55.838</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-16T16:56:41.171</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-18T15:48:57.489</Modified>
+      <Modified>2017-09-26T15:17:56.430</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repo%27s\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
       <PackagePath>UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-18T15:48:57.972</Modified>
+      <Modified>2017-09-26T15:20:09.427</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -20,21 +20,14 @@ namespace UwpEindopdracht.ViewModels
 
 		private int _nextId;
 
+		public RelayCommand ArticleOnClick { get; }
+
 		private NewsViewModel()
 		{
-			//FillArticles();
+			ArticleOnClick = new RelayCommand(NavigateToDetailsPage);
 
 			Articles = new ObservableIncrementalLoadingCollection<Article>();
 			Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
-		}
-
-		private void FillArticles()
-		{
-			//Articles.Add(new Article { Title = "Artikel 1", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
-			//Articles.Add(new Article { Title = "Artikel 2", Summary = "Omschrijving", Image = "https://media.nu.nl/m/frxxeb7atkg3_std320.jpg" });
-			//Articles.Add(new Article { Title = "Artikel 3", Summary = "Omschrijving", Image = "https://media.nu.nl/m/aq4xvuuax56y_std320.jpg" });
-			//Articles.Add(new Article { Title = "Artikel 4", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
-			//Articles.Add(new Article { Title = "Artikel 5", Summary = "Omschrijving", Image = "https://media.nu.nl/m/bx0xbrba7szq_std320.jpg" });
 		}
 
 		private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
@@ -58,9 +51,11 @@ namespace UwpEindopdracht.ViewModels
 
 		//public RelayCommand NavigateToSecondPageCommand { get; } = new RelayCommand(NavigateToSecondPage);
 
-		public void NavigateToSecondPage(object article)
+		public void NavigateToDetailsPage(object article)
 		{
-			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), (Article)article);
+			Article news = (Article)article;
+
+			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), news);
 		}
 	}
 }

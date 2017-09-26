@@ -12,5 +12,5 @@ namespace UwpEindopdracht.Services
     {
         public List<Article> Results { get; set; }
         public int NextId { get; set; }
-    }
+	}
 }

@@ -1,1 +1,1 @@
-D:\School\Repo's\UWP opdracht\UwpEindopdracht\UwpEindopdracht.csproj;x86
+D:\School\Repos\UWP opdracht\UwpEindopdracht\UwpEindopdracht.csproj;x86
