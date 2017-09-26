@@ -26,9 +26,13 @@
                 <DataTemplate                            >
                     <StackPanel x:ConnectionId='3' Orientation="Horizontal" Margin="0">
                         <Image x:ConnectionId='4'                         Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                        <StackPanel Margin="20">
-                            <TextBlock x:ConnectionId='5'                       FontWeight="ExtraBold" FontSize="20"></TextBlock>
-                            <TextBlock x:ConnectionId='6'                        ></TextBlock>
+                        <StackPanel Margin="20" MaxWidth="300">
+                            <TextBlock x:ConnectionId='5'                       
+                                       FontWeight="ExtraBold" 
+                                       FontSize="20" 
+                                       TextWrapping="WrapWholeWords"/>
+                            <TextBlock x:ConnectionId='6'                         
+                                       TextWrapping="WrapWholeWords"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

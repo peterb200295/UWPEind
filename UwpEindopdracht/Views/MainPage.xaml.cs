@@ -40,3 +40,6 @@ namespace UwpEindopdracht.Views
 		}
 	}
 }
+//Used resources
+// - Hamburgermenu http://www.shenchauhan.com/blog/2015/7/14/creating-a-responsive-uwp-application
+// - 
