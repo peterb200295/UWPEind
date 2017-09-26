@@ -38,6 +38,11 @@ namespace UwpEindopdracht.Views
 		{
             VM.ArticleOnClick.Execute(e.ClickedItem);
 		}
+
+		private void OnHamburgerClick(object sender, RoutedEventArgs e)
+		{
+			this.MySplitView.IsPaneOpen = !this.MySplitView.IsPaneOpen;
+		}
 	}
 }
 //Used resources

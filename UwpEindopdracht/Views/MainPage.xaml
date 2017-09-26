@@ -8,35 +8,52 @@
     xmlns:models="using:UwpEindopdracht.Models"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <RelativePanel Background="Black" Grid.Row="0">
-            <Button x:Name="OptionsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Height="50px" Width="50px" Foreground="White" Background="DarkSlateGray"></Button>
-            <TextBlock RelativePanel.RightOf="OptionsButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
-        </RelativePanel>
-        <ListView x:Name="ListView" 
+    <SplitView x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
+        <SplitView.Pane>
+            <TextBlock Text="opties"></TextBlock>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <RelativePanel Background="Black" Grid.Row="0">
+                    <Button x:Name="OptionsButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE700;" 
+                            Height="50px" 
+                            Width="50px" 
+                            Click="OnHamburgerClick"
+                            Foreground="White" 
+                            Background="DarkSlateGray"></Button>
+                    <TextBlock RelativePanel.RightOf="OptionsButton" 
+                               Margin="10, 15" Text="Inholland News Reader" 
+                               Foreground="White"/>
+                </RelativePanel>
+                <ListView x:Name="ListView" 
                     ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" 
                     Grid.Row="1" 
                     IsItemClickEnabled="True"
                     ItemClick="ArticleSelection">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:Article">
-                    <StackPanel Orientation="Horizontal" Margin="0">
-                        <Image Source="{x:Bind Image}" Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                        <StackPanel Margin="20" MaxWidth="300">
-                            <TextBlock Text="{x:Bind Title}" 
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Article">
+                            <StackPanel Orientation="Horizontal" Margin="0">
+                                <Image Source="{x:Bind Image}" Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <StackPanel Margin="20" MaxWidth="300">
+                                    <TextBlock Text="{x:Bind Title}" 
                                        FontWeight="ExtraBold" 
                                        FontSize="20" 
                                        TextWrapping="WrapWholeWords"/>
-                            <TextBlock Text="{x:Bind Summary}" 
+                                    <TextBlock Text="{x:Bind Summary}" 
                                        TextWrapping="WrapWholeWords"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+    
 </Page>
