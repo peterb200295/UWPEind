@@ -10,17 +10,34 @@
 
     <SplitView x:ConnectionId='2' x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
         <SplitView.Pane>
-            <TextBlock Text="opties"></TextBlock>
-        </SplitView.Pane>
-        <SplitView.Content>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <RelativePanel Background="Black" Grid.Row="0">
-                    <Button x:ConnectionId='8' x:Name="OptionsButton" 
+                    <Button x:ConnectionId='3' x:Name="MenuButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE700;" 
+                            Height="50px" 
+                            Width="50px" 
+                                                    
+                            Foreground="White" 
+                            Background="DarkSlateGray"></Button>
+                    <TextBlock RelativePanel.RightOf="MenuButton" 
+                               Margin="10, 15" Text="Inholland News Reader" 
+                               Foreground="White"/>
+                </RelativePanel>
+            </Grid>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <RelativePanel Background="Black" Grid.Row="0">
+                    <Button x:ConnectionId='9' x:Name="OptionsButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
                             Height="50px" 
@@ -32,21 +49,21 @@
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
                 </RelativePanel>
-                <ListView x:ConnectionId='3' x:Name="ListView" 
+                <ListView x:ConnectionId='4' x:Name="ListView" 
                                                                     
                     Grid.Row="1" 
                     IsItemClickEnabled="True"
                                                 >
                     <ListView.ItemTemplate>
                         <DataTemplate                            >
-                            <StackPanel x:ConnectionId='4' Orientation="Horizontal" Margin="0">
-                                <Image x:ConnectionId='5'                         Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                            <StackPanel x:ConnectionId='5' Orientation="Horizontal" Margin="0">
+                                <Image x:ConnectionId='6'                         Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                                 <StackPanel Margin="20" MaxWidth="300">
-                                    <TextBlock x:ConnectionId='6'                       
+                                    <TextBlock x:ConnectionId='7'                       
                                        FontWeight="ExtraBold" 
                                        FontSize="20" 
                                        TextWrapping="WrapWholeWords"/>
-                                    <TextBlock x:ConnectionId='7'                         
+                                    <TextBlock x:ConnectionId='8'                         
                                        TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
                             </StackPanel>
