@@ -95,10 +95,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\ObservableIncrementalLoadingCollection.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IncrementalLoadingResponse.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Services\ArticlesResult.cs" />
     <Compile Include="Services\BackEnd.cs" />
     <Compile Include="Models\Category.cs" />

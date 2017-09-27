@@ -31,7 +31,6 @@ namespace UwpEindopdracht.Views
 		{
 			this.InitializeComponent();
 			DataContext = this;
-			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 		}
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -42,6 +41,21 @@ namespace UwpEindopdracht.Views
 			if (article != null) {
 				VM.Article = article;
 			}
+			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+				AppViewBackButtonVisibility.Visible;
+
+			SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+		}
+
+		protected override void OnNavigatedFrom(NavigationEventArgs e)
+		{
+			SystemNavigationManager.GetForCurrentView().BackRequested -= OnBackRequested;
+		}
+
+		private async void OnBackRequested(object sender, BackRequestedEventArgs e)
+		{
+			e.Handled = true;
+			Frame.GoBack();
 		}
 
 		private async void OnReadMoreClick(object sender, RoutedEventArgs e)
@@ -58,7 +72,7 @@ namespace UwpEindopdracht.Views
 
 		private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
-
+			Frame.GoBack();
 		}
 	}
 }

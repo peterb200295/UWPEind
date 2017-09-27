@@ -9,6 +9,7 @@ using UwpEindopdracht.Services;
 using UwpEindopdracht.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,6 +33,7 @@ namespace UwpEindopdracht.Views
         {
             this.InitializeComponent();
             DataContext = this;
+			NavigationCacheMode = NavigationCacheMode.Required;
         }
 
 		private void ArticleSelection(object sender, ItemClickEventArgs e)
@@ -42,6 +44,21 @@ namespace UwpEindopdracht.Views
 		private void OnHamburgerClick(object sender, RoutedEventArgs e)
 		{
 			this.MySplitView.IsPaneOpen = !this.MySplitView.IsPaneOpen;
+		}
+
+		private async void LoginButton_Click(object sender, RoutedEventArgs e)
+		{
+			UserModel.Instance.UserName = textb_Email.Text;
+			UserModel.Instance.Password = textb_Password.Password;
+
+			if (!UserModel.Instance.IsValid())
+			{
+				var dialog = new MessageDialog("Voer uw gegevens in");
+				await dialog.ShowAsync();
+				return;
+			}
+
+			VM.LogIn.Execute(UserModel.Instance);
 		}
 	}
 }

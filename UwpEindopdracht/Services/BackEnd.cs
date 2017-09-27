@@ -1,6 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System;
+using UwpEindopdracht.Models;
+using System.Collections.Generic;
+using Windows.UI.Popups;
 
 namespace UwpEindopdracht.Services
 {
@@ -20,6 +24,7 @@ namespace UwpEindopdracht.Services
 				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
 				return result;
 			}
+
 		}
 
 		/// <summary>
@@ -34,6 +39,31 @@ namespace UwpEindopdracht.Services
 				var json = await client.GetStringAsync(baseAPI + "Articles/" + nextId);
 				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
 				return result;
+			}
+		}
+
+		public static async void LoginUser(UserModel loginCredentials)
+		{
+			using (var client = new HttpClient())
+			{
+				var parameters = new Dictionary<string, string> { { "username", loginCredentials.UserName }, { "password", loginCredentials.Password } };
+
+				using (var content = new FormUrlEncodedContent(parameters))
+				{
+					using (var response = await client.PostAsync(baseAPI + "Users/Login", content))
+					{
+						var token = await response.Content.ReadAsStringAsync();
+
+						if (string.IsNullOrWhiteSpace(token))
+						{
+							var dialog = new MessageDialog("De ingevoerde gebruikersnaam/wachtwoord is incorrect.");
+							await dialog.ShowAsync();
+						}
+
+						dynamic authToken = JsonConvert.DeserializeObject(token);
+						loginCredentials.AuthenticationToken = authToken.AuthToken;
+					}
+				}
 			}
 		}
 	}

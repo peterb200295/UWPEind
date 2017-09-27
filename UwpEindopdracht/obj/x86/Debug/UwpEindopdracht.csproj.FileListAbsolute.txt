@@ -582,7 +582,6 @@ D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\System.Xml.ReaderWrit
 D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\System.Xml.XDocument.dll
 D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\System.Xml.XmlDocument.dll
 D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\System.Xml.XmlSerializer.dll
-D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\UwpEindopdracht.csprojResolveAssemblyReference.cache
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\App.g.i.cs
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\App.g.cs
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\Views\ArticleDetails.g.i.cs
@@ -680,3 +679,4 @@ D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\qualifiers.txt
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\qualifiers.txt.intermediate
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\ProjectArchitectures.txt
+D:\School\Repos\UWP opdracht\UwpEindopdracht\obj\x86\Debug\UwpEindopdracht.csprojResolveAssemblyReference.cache

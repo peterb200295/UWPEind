@@ -13,7 +13,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <RelativePanel Background="DeepPink" Grid.Row="0">
+        <RelativePanel Background="Pink" Grid.Row="0">
             <Button x:ConnectionId='7' x:Name="BackButton" 
                     Content="Back" 
                     Height="50px" 
