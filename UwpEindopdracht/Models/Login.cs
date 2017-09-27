@@ -14,7 +14,7 @@ namespace UwpEindopdracht.Models
 
 		public bool IsLoggedIn {
 			get {
-				if (string.IsNullOrWhiteSpace(AuthenticationToken)){ return false; }
+				if (string.IsNullOrWhiteSpace(AuthenticationToken)) { return false; }
 				else return true;
 			}
 		}

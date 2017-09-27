@@ -33,7 +33,7 @@ namespace UwpEindopdracht.Views
         {
             this.InitializeComponent();
             DataContext = this;
-			NavigationCacheMode = NavigationCacheMode.Required;
+			//NavigationCacheMode = NavigationCacheMode.Required;
         }
 
 		private void ArticleSelection(object sender, ItemClickEventArgs e)

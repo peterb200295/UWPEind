@@ -2,7 +2,7 @@ Functions General
 - Responsive
 - Works on all devices
 - Error handling, may not crash for example when no internetconnection is established
-- Back button must be present for phones 
+V Back button must be present for phones 
 V MVVM pattern must be implemented
 
 Functions Mainpage

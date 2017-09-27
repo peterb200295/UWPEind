@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Helpers\NotifyBase.cs" />
     <Compile Include="Helpers\ObservableIncrementalLoadingCollection.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Models\Article.cs" />

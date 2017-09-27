@@ -5,6 +5,7 @@ using System;
 using UwpEindopdracht.Models;
 using System.Collections.Generic;
 using Windows.UI.Popups;
+using UwpEindopdracht.Views;
 
 namespace UwpEindopdracht.Services
 {
@@ -58,10 +59,13 @@ namespace UwpEindopdracht.Services
 						{
 							var dialog = new MessageDialog("De ingevoerde gebruikersnaam/wachtwoord is incorrect.");
 							await dialog.ShowAsync();
+							return;
 						}
 
 						dynamic authToken = JsonConvert.DeserializeObject(token);
 						loginCredentials.AuthenticationToken = authToken.AuthToken;
+						var dialogSucces = new MessageDialog("Ingelogd als "+loginCredentials.UserName);
+						await dialogSucces.ShowAsync();
 					}
 				}
 			}

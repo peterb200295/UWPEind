@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace UwpEindopdracht.ViewModels
 {
-	public sealed class NewsViewModel
+	public sealed class NewsViewModel : NotifyBase
 	{
 		public static NewsViewModel SingleInstance { get; } = new NewsViewModel();
 
@@ -37,7 +37,7 @@ namespace UwpEindopdracht.ViewModels
 			Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
 		}
 
-		private async void LogInUser(object obj)
+		private void LogInUser(object obj)
 		{
 			UserModel loginCredentials = (UserModel)obj;
 			if (loginCredentials == null) return;
@@ -63,8 +63,8 @@ namespace UwpEindopdracht.ViewModels
 				CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
 				{
 					var dialog = new MessageDialog("Er is een probleem opgetreden, probeer het opnieuw");
-					dialog.ShowAsync();
-				});
+					var a = dialog.ShowAsync();
+				}).AsTask();
 				return null;
 			}
 
@@ -76,11 +76,6 @@ namespace UwpEindopdracht.ViewModels
 			_nextId = result.NextId;
 			return list;
 
-		}
-
-		private async void ErrorHandler()
-		{
-			
 		}
 		//public RelayCommand NavigateToSecondPageCommand { get; } = new RelayCommand(NavigateToSecondPage);
 
