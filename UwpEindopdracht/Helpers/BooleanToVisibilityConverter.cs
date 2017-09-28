@@ -20,4 +20,25 @@ namespace UwpEindopdracht.Helpers
 			throw new NotImplementedException();
 		}
 	}
+
+	/// <summary>
+	/// If string is empty or null, visibility = true
+	/// If string is filled, visibility = false
+	/// </summary>
+	public sealed class StringToVisibilityConverter : IValueConverter
+	{
+		public object Convert(object value, Type targetType, object parameter, string language)
+		{
+			if (value is string && string.IsNullOrWhiteSpace((string)value))
+			{
+				return Visibility.Collapsed;
+			}
+			else return Visibility.Visible;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, string language)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

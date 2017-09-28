@@ -6,6 +6,8 @@ using UwpEindopdracht.Models;
 using System.Collections.Generic;
 using Windows.UI.Popups;
 using UwpEindopdracht.Views;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace UwpEindopdracht.Services
 {
@@ -26,6 +28,31 @@ namespace UwpEindopdracht.Services
 				return result;
 			}
 
+		}
+
+		public static async Task<bool> LikeArticle(int articleID)
+		{
+			var uri = baseAPI + "Articles/" + articleID + "/like";
+			var authtoken = UserModel.Instance.AuthenticationToken;
+
+			if (string.IsNullOrWhiteSpace(authtoken))
+			{
+				return false;
+			}
+
+			using (var client = new HttpClient())
+			{
+				using (var request = new HttpRequestMessage(HttpMethod.Put, uri))
+				{
+					request.Headers.Add("x-authtoken", authtoken);
+
+					using (var response = await client.SendAsync(request))
+					{
+						var str = await response.Content.ReadAsStringAsync();
+						return true;
+					}
+				}
+			}
 		}
 
 		/// <summary>
@@ -66,6 +93,9 @@ namespace UwpEindopdracht.Services
 						loginCredentials.AuthenticationToken = authToken.AuthToken;
 						var dialogSucces = new MessageDialog("Ingelogd als "+loginCredentials.UserName);
 						await dialogSucces.ShowAsync();
+						loginCredentials.Password = null;
+						((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+
 					}
 				}
 			}

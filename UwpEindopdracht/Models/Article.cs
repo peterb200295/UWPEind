@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UwpEindopdracht.Services;
 
 namespace UwpEindopdracht.Models
 {
@@ -15,5 +17,17 @@ namespace UwpEindopdracht.Models
         public List<string> Related { get; set; }
         public List<Category> Categories { get; set; }
         public bool IsLiked { get; set; }
-    }
+
+		public async Task<bool> LikeArticle()
+		{
+			var succes = await Backend.LikeArticle(Id);
+
+			if (succes == true)
+			{
+				IsLiked = true;
+				return true;
+			}
+			else { return false; }
+		}
+	}
 }

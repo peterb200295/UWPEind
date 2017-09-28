@@ -9,6 +9,7 @@ using UwpEindopdracht.Services;
 using UwpEindopdracht.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,23 +23,23 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UwpEindopdracht.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        private NewsViewModel VM => NewsViewModel.SingleInstance;
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class MainPage : Page
+	{
+		private NewsViewModel VM => NewsViewModel.SingleInstance;
 
-        public MainPage()
-        {
-            this.InitializeComponent();
-            DataContext = this;
+		public MainPage()
+		{
+			this.InitializeComponent();
+			DataContext = VM;
 			//NavigationCacheMode = NavigationCacheMode.Required;
-        }
+		}
 
 		private void ArticleSelection(object sender, ItemClickEventArgs e)
 		{
-            VM.ArticleOnClick.Execute(e.ClickedItem);
+			VM.ArticleOnClick.Execute(e.ClickedItem);
 		}
 
 		private void OnHamburgerClick(object sender, RoutedEventArgs e)
@@ -59,6 +60,22 @@ namespace UwpEindopdracht.Views
 			}
 
 			VM.LogIn.Execute(UserModel.Instance);
+		}
+
+		private void LikeButton_Click(object sender, RoutedEventArgs e)
+		{
+			var button = (Button)sender;
+			var article = (Article)button.DataContext;
+
+			VM.ArticleLikeOnClick.Execute(article);
+		}
+
+		protected override void OnNavigatedTo(NavigationEventArgs e)
+		{
+			base.OnNavigatedTo(e);
+			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+				AppViewBackButtonVisibility.Collapsed;
+			MySplitView.IsPaneOpen = false;
 		}
 	}
 }

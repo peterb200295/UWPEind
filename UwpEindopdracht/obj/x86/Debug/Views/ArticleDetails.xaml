@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <RelativePanel Background="Pink" Grid.Row="0">
+        <RelativePanel Background="DeepPink" Grid.Row="0">
             <Button x:ConnectionId='7' x:Name="BackButton" 
                     Content="Back" 
                     Height="50px" 
@@ -28,24 +28,32 @@
                Stretch="UniformToFill" 
                HorizontalAlignment="Left"
                />
-        <StackPanel Grid.Row="2" Padding="15">
-            <TextBlock x:ConnectionId='3'                                              
-                   Grid.Row="2"
-                       TextWrapping="WrapWholeWords"
-                   FontSize="25"/>
-            <TextBlock x:ConnectionId='4'                                                
-                       TextWrapping="WrapWholeWords"
-                   Grid.Row="2"/>
-            <HyperlinkButton x:ConnectionId='5'                                  
-                                                                       >
-                Lees meer!
-            </HyperlinkButton>
-            <Button Content="Like artikel" 
-                    HorizontalAlignment="Stretch"/>
-            <TextBlock x:ConnectionId='6'                                                
-                   Grid.Row="2"
-                   Margin="10 0"/>
-        </StackPanel>
+        <ScrollViewer Grid.Row="2"
+                        HorizontalScrollMode="Disabled" 
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollMode="Enabled"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel  Padding="15" 
+                         ScrollViewer.HorizontalScrollMode="Disabled"
+                        >
+                <TextBlock x:ConnectionId='3'                                              
+                       Grid.Row="2"
+                           TextWrapping="WrapWholeWords"
+                       FontSize="25"/>
+                <TextBlock x:ConnectionId='4'                                                
+                           TextWrapping="WrapWholeWords"
+                       Grid.Row="2"/>
+                <HyperlinkButton x:ConnectionId='5'                                  
+                                                                           >
+                    Lees meer!
+                </HyperlinkButton>
+                <Button Content="Like artikel" 
+                        HorizontalAlignment="Stretch"/>
+                <TextBlock x:ConnectionId='6'                                                
+                       Grid.Row="2"
+                       Margin="10 0"/>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Page>

@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace UwpEindopdracht.ViewModels
 {
-	public sealed class NewsViewModel : NotifyBase
+	public sealed class NewsViewModel
 	{
 		public static NewsViewModel SingleInstance { get; } = new NewsViewModel();
 
@@ -23,6 +23,7 @@ namespace UwpEindopdracht.ViewModels
 		private int _nextId;
 
 		public RelayCommand ArticleOnClick { get; }
+		public RelayCommand ArticleLikeOnClick { get; }
 		public RelayCommand LogIn { get; set; }
 
 		public UserModel User { get; }
@@ -30,6 +31,7 @@ namespace UwpEindopdracht.ViewModels
 		private NewsViewModel()
 		{
 			ArticleOnClick = new RelayCommand(NavigateToDetailsPage);
+			ArticleLikeOnClick = new RelayCommand(LikeArticle);
 			LogIn = new RelayCommand(LogInUser);
 			User = UserModel.Instance;
 
@@ -37,7 +39,7 @@ namespace UwpEindopdracht.ViewModels
 			Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
 		}
 
-		private void LogInUser(object obj)
+		private async void LogInUser(object obj)
 		{
 			UserModel loginCredentials = (UserModel)obj;
 			if (loginCredentials == null) return;
@@ -84,6 +86,19 @@ namespace UwpEindopdracht.ViewModels
 			Article news = (Article)article;
 
 			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), news);
+		}
+
+		public async void LikeArticle(object article)
+		{
+			Article news = (Article)article;
+
+			if (User.IsLoggedIn)
+			{
+				if (!news.IsLiked)
+				{
+					var result = await news.LikeArticle();
+				}
+			}
 		}
 	}
 }

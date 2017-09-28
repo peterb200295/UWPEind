@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-27T18:13:54.698</Modified>
+      <Modified>2017-09-28T11:04:29.508</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
       <PackagePath>entrypoint\UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-27T18:13:54.407</Modified>
+      <Modified>2017-09-28T11:04:29.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -559,7 +559,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
       <PackagePath>UwpEindopdracht.xr.xml</PackagePath>
-      <Modified>2017-09-27T14:24:39.465</Modified>
+      <Modified>2017-09-28T10:48:00.703</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -568,11 +568,11 @@
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-27T18:10:11.653</Modified>
+      <Modified>2017-09-28T10:48:01.309</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
       <PackagePath>UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-27T18:13:54.694</Modified>
+      <Modified>2017-09-28T11:04:29.505</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

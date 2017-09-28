@@ -6,11 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:UwpEindopdracht.Models"
-    xmlns:common="using:UwpEindopdracht.Helpers"
     mc:Ignorable="d">
-    <Page.Resources>
-        <common:BooleanToVisibilityConverter x:Key="boolean"/>
-    </Page.Resources>
+    
     <SplitView x:ConnectionId='2' x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
         <SplitView.Pane>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -45,7 +42,7 @@
                 </StackPanel>
                 <StackPanel x:ConnectionId='3' Grid.Row="2" 
                             Margin="20"
-                                                                                                                     >
+                                                                                                                                          >
                     <TextBlock FontSize="20" Margin="0 10">Log In</TextBlock>
                     <TextBox x:ConnectionId='4' PlaceholderText="Email"
                              Margin="0 10"
@@ -69,7 +66,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <RelativePanel Background="DeepPink" Grid.Row="0">
-                    <Button x:ConnectionId='13' x:Name="OptionsButton" 
+                    <Button x:ConnectionId='14' x:Name="OptionsButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
                             Height="50px" 
@@ -88,14 +85,16 @@
                                                 >
                     <ListView.ItemTemplate>
                         <DataTemplate                            >
-                            <StackPanel x:ConnectionId='9' Orientation="Horizontal" Margin="0">
-                                <Image x:ConnectionId='10'                         Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                            <StackPanel x:ConnectionId='9' Orientation="Horizontal" Margin="0 0 20 0">
+                                <Image x:ConnectionId='10'                         Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Button x:ConnectionId='11'                         
+                                        Visibility="{Binding User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
                                 <StackPanel Margin="20" MaxWidth="300">
-                                    <TextBlock x:ConnectionId='11'                       
+                                    <TextBlock x:ConnectionId='12'                       
                                        FontWeight="ExtraBold" 
                                        FontSize="20" 
                                        TextWrapping="WrapWholeWords"/>
-                                    <TextBlock x:ConnectionId='12'                         
+                                    <TextBlock x:ConnectionId='13'                         
                                        TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
                             </StackPanel>

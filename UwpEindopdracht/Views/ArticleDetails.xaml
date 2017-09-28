@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <RelativePanel Background="Pink" Grid.Row="0">
+        <RelativePanel Background="DeepPink" Grid.Row="0">
             <Button x:Name="BackButton" 
                     Content="Back" 
                     Height="50px" 
@@ -28,24 +28,32 @@
                Stretch="UniformToFill" 
                HorizontalAlignment="Left"
                />
-        <StackPanel Grid.Row="2" Padding="15">
-            <TextBlock Text="{x:Bind VM.Article.Title, Mode=OneWay}"
-                   Grid.Row="2"
-                       TextWrapping="WrapWholeWords"
-                   FontSize="25"/>
-            <TextBlock Text="{x:Bind VM.Article.Summary, Mode=OneWay}"
-                       TextWrapping="WrapWholeWords"
-                   Grid.Row="2"/>
-            <HyperlinkButton Command="{x:Bind VM.OpenArticle}"
-                             CommandParameter="{x:Bind VM.Article.Url}">
-                Lees meer!
-            </HyperlinkButton>
-            <Button Content="Like artikel" 
-                    HorizontalAlignment="Stretch"/>
-            <TextBlock Text="{x:Bind VM.Article.IsLiked, Mode=OneWay}"
-                   Grid.Row="2"
-                   Margin="10 0"/>
-        </StackPanel>
+        <ScrollViewer Grid.Row="2"
+                        HorizontalScrollMode="Disabled" 
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollMode="Enabled"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel  Padding="15" 
+                         ScrollViewer.HorizontalScrollMode="Disabled"
+                        >
+                <TextBlock Text="{x:Bind VM.Article.Title, Mode=OneWay}"
+                       Grid.Row="2"
+                           TextWrapping="WrapWholeWords"
+                       FontSize="25"/>
+                <TextBlock Text="{x:Bind VM.Article.Summary, Mode=OneWay}"
+                           TextWrapping="WrapWholeWords"
+                       Grid.Row="2"/>
+                <HyperlinkButton Command="{x:Bind VM.OpenArticle}"
+                                 CommandParameter="{x:Bind VM.Article.Url}">
+                    Lees meer!
+                </HyperlinkButton>
+                <Button Content="Like artikel" 
+                        HorizontalAlignment="Stretch"/>
+                <TextBlock Text="{x:Bind VM.Article.IsLiked, Mode=OneWay}"
+                       Grid.Row="2"
+                       Margin="10 0"/>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Page>

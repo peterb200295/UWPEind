@@ -6,11 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:UwpEindopdracht.Models"
-    xmlns:common="using:UwpEindopdracht.Helpers"
     mc:Ignorable="d">
-    <Page.Resources>
-        <common:BooleanToVisibilityConverter x:Key="boolean"/>
-    </Page.Resources>
+    
     <SplitView x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
         <SplitView.Pane>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -45,7 +42,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="2" 
                             Margin="20"
-                            Visibility="{x:Bind VM.User.IsLoggedIn, Converter={StaticResource boolean}, Mode=OneWay}">
+                            Visibility="{x:Bind VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">
                     <TextBlock FontSize="20" Margin="0 10">Log In</TextBlock>
                     <TextBox PlaceholderText="Email"
                              Margin="0 10"
@@ -88,8 +85,10 @@
                     ItemClick="ArticleSelection">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="models:Article">
-                            <StackPanel Orientation="Horizontal" Margin="0">
-                                <Image Source="{x:Bind Image}" Width="200px" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Image Source="{x:Bind Image}" Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Button Click="LikeButton_Click"
+                                        Visibility="{Binding User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
                                 <StackPanel Margin="20" MaxWidth="300">
                                     <TextBlock Text="{x:Bind Title}" 
                                        FontWeight="ExtraBold" 

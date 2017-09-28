@@ -15,7 +15,7 @@ V When clicking an article the application navigates the user to article detail 
 
 Functions Detailpage
 V Of the article the following must be shown: title, description, image, full article url
-- The page must implement scrolling
+V The page must implement scrolling
 V Full article url should be clickable and should open the url in default browser
 V Back button should be a way to return to mainpage, not make a new instance of the mainpage
 
