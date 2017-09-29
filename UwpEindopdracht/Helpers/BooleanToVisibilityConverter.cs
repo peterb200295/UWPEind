@@ -21,6 +21,7 @@ namespace UwpEindopdracht.Helpers
 		}
 	}
 
+	
 	/// <summary>
 	/// If string is empty or null, visibility = true
 	/// If string is filled, visibility = false

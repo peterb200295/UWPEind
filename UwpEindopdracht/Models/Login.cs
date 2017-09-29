@@ -50,8 +50,7 @@ namespace UwpEindopdracht.Models
 
 		public bool IsLoggedIn {
 			get {
-				if (string.IsNullOrWhiteSpace(authToken)) { return false; }
-				else return true;
+				return !string.IsNullOrWhiteSpace(authToken);
 			}
 		}
 

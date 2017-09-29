@@ -80,7 +80,7 @@ namespace UwpEindopdracht.Services
 
 		}
 
-		public static async void LoginUser(UserModel loginCredentials)
+		public static async Task<bool> LoginUser(UserModel loginCredentials)
 		{
 			using (var client = new HttpClient())
 			{
@@ -94,22 +94,25 @@ namespace UwpEindopdracht.Services
 
 						if (string.IsNullOrWhiteSpace(token))
 						{
-							var dialog = new MessageDialog("De ingevoerde gebruikersnaam/wachtwoord is incorrect.");
-							await dialog.ShowAsync();
-							return;
+							
+							return false;
 						}
 
 						dynamic authToken = JsonConvert.DeserializeObject(token);
 						loginCredentials.AuthenticationToken = authToken.AuthToken;
-						var dialogSucces = new MessageDialog("Ingelogd als "+loginCredentials.UserName);
-						await dialogSucces.ShowAsync();
+
 						loginCredentials.Password = null;
+
+
 						((Frame)Window.Current.Content).Navigate(typeof(MainPage));
 						NewsViewModel.SingleInstance.RefreshArticles();
 
+						return true;
 					}
 				}
 			}
+
+
 		}
 	}
 }

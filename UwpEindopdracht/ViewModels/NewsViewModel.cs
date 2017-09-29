@@ -42,13 +42,39 @@ namespace UwpEindopdracht.ViewModels
 
 		private async void LogInUser(object obj)
 		{
+			bool succes;
 			UserModel loginCredentials = (UserModel)obj;
 			if (loginCredentials == null) return;
 
-			Backend.LoginUser(loginCredentials);
-			RefreshArticles();
+			try
+			{
+				succes = await Backend.LoginUser(loginCredentials);
+
+				if (!succes)
+				{
+					ShowPopup("De ingevoerde gebruikersnaam/wachtwoord is incorrect.");
+					return;
+				}
+				else
+				{
+					ShowPopup("Ingelogd als " + UserModel.Instance.UserName);
+					RefreshArticles();
+				}
+			}
+			catch (Exception)
+			{
+				ShowPopup("Er lijkt een probleem opgetreden te zijn. Probeer het later opnieuw.");
+				return;
+			}
 		}
 
+		private async void ShowPopup(string message)
+		{
+			var dialog = new MessageDialog(message);
+			await dialog.ShowAsync();
+		}
+		
+		//TODO: ERRORHANDLING
 		private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
 		{
 			ArticlesResult result = null;
@@ -64,7 +90,7 @@ namespace UwpEindopdracht.ViewModels
 			}
 			catch (Exception)
 			{
-				CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+				await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
 				{
 					var dialog = new MessageDialog("Er is een probleem opgetreden, probeer het opnieuw");
 					var a = dialog.ShowAsync();
@@ -97,6 +123,7 @@ namespace UwpEindopdracht.ViewModels
 			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), news);
 		}
 
+		//TODO: ERRORHANDLING
 		public async void LikeArticle(object article)
 		{
 			Article news = (Article)article;

@@ -132,23 +132,25 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
+            _typeNameTable = new string[8];
             _typeNameTable[0] = "UwpEindopdracht.Helpers.StringToVisibilityConverter";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "UwpEindopdracht.Helpers.BooleanToVisibilityConverter";
-            _typeNameTable[3] = "UwpEindopdracht.Views.ArticleDetails";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[6] = "UwpEindopdracht.Views.MainPage";
+            _typeNameTable[3] = "UwpEindopdracht.Helpers.BooleanToVisibilityConverterInverted";
+            _typeNameTable[4] = "UwpEindopdracht.Views.ArticleDetails";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[7] = "UwpEindopdracht.Views.MainPage";
 
-            _typeTable = new global::System.Type[7];
+            _typeTable = new global::System.Type[8];
             _typeTable[0] = typeof(global::UwpEindopdracht.Helpers.StringToVisibilityConverter);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::UwpEindopdracht.Helpers.BooleanToVisibilityConverter);
-            _typeTable[3] = typeof(global::UwpEindopdracht.Views.ArticleDetails);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[6] = typeof(global::UwpEindopdracht.Views.MainPage);
+            _typeTable[3] = typeof(global::UwpEindopdracht.Helpers.BooleanToVisibilityConverterInverted);
+            _typeTable[4] = typeof(global::UwpEindopdracht.Views.ArticleDetails);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[7] = typeof(global::UwpEindopdracht.Views.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -185,8 +187,9 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
 
         private object Activate_0_StringToVisibilityConverter() { return new global::UwpEindopdracht.Helpers.StringToVisibilityConverter(); }
         private object Activate_2_BooleanToVisibilityConverter() { return new global::UwpEindopdracht.Helpers.BooleanToVisibilityConverter(); }
-        private object Activate_3_ArticleDetails() { return new global::UwpEindopdracht.Views.ArticleDetails(); }
-        private object Activate_6_MainPage() { return new global::UwpEindopdracht.Views.MainPage(); }
+        private object Activate_3_BooleanToVisibilityConverterInverted() { return new global::UwpEindopdracht.Helpers.BooleanToVisibilityConverterInverted(); }
+        private object Activate_4_ArticleDetails() { return new global::UwpEindopdracht.Views.ArticleDetails(); }
+        private object Activate_7_MainPage() { return new global::UwpEindopdracht.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -216,24 +219,31 @@ namespace UwpEindopdracht.UwpEindopdracht_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 3:   //  UwpEindopdracht.Views.ArticleDetails
-                userType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_ArticleDetails;
+            case 3:   //  UwpEindopdracht.Helpers.BooleanToVisibilityConverterInverted
+                userType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_3_BooleanToVisibilityConverterInverted;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 5:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  UwpEindopdracht.Views.MainPage
+            case 4:   //  UwpEindopdracht.Views.ArticleDetails
                 userType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+                userType.Activator = Activate_4_ArticleDetails;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  UwpEindopdracht.Views.MainPage
+                userType = new global::UwpEindopdracht.UwpEindopdracht_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

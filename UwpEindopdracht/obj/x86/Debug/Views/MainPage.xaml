@@ -106,7 +106,7 @@
                             <StackPanel x:ConnectionId='10' Orientation="Horizontal" Margin="0 0 20 0">
                                 <Image x:ConnectionId='11'                         Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                                 <Button x:ConnectionId='12'                         
-                                        Visibility="{Binding VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
+                                                                                                                                                      >Like</Button>
                                 <StackPanel Margin="20" MaxWidth="300">
                                     <TextBlock x:ConnectionId='13'                       
                                        FontWeight="ExtraBold" 

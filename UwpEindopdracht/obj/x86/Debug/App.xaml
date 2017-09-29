@@ -9,6 +9,7 @@
     <Application.Resources>
         <common:StringToVisibilityConverter x:Key="stringVisibilityConverter"/>
         <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+        <common:BooleanToVisibilityConverterInverted x:Key="booleanToVisibilityConverterInverted"/>
     </Application.Resources>
 </Application>
 

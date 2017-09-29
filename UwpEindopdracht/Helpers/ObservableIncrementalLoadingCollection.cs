@@ -39,27 +39,39 @@ namespace UwpEindopdracht.Helpers
 
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
-            var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+			try
+			{
+				var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
 
-            return Task.Run(async () =>
-            {
-                var handler = LoadMoreItemsAsyncEvent;
-                if (handler == null) return new LoadMoreItemsResult { Count = 0 };
+				return Task.Run(async () =>
+				{
+					var handler = LoadMoreItemsAsyncEvent;
+					if (handler == null) return new LoadMoreItemsResult { Count = 0 };
 
-                var response = await handler(_nextId);
-                await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    foreach (var item in response.Items)
-                    {
-                        Add(item);
-                    }
-                });
+					var response = await handler(_nextId);
 
-                //if (response.NextId <= 0) _reachedEnd = true;
-                //_nextId = response.NextId;
+					if (response != null)
+					{
+						await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+						{
+							foreach (var item in response.Items)
+							{
+								Add(item);
+							}
+						});
+					}
+					//if (response.NextId <= 0) _reachedEnd = true;
+					//_nextId = response.NextId;
 
-                return new LoadMoreItemsResult { Count = (uint)response.Items.Count() };
-            }).AsAsyncOperation();
+					//TODO: Bij geen internet werkt deze niet
+					return new LoadMoreItemsResult { Count = (uint)response.Items.Count() };
+				}).AsAsyncOperation();
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+            
         }
     }
 }

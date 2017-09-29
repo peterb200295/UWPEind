@@ -106,7 +106,7 @@
                             <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
                                 <Image Source="{x:Bind Image}" Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                                 <Button Click="LikeButton_Click"
-                                        Visibility="{Binding VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
+                                        Visibility="{x:Bind IsLoggedIn, Converter={StaticResource booleanToVisibilityConverterInverted}, Mode=OneWay}">Like</Button>
                                 <StackPanel Margin="20" MaxWidth="300">
                                     <TextBlock Text="{x:Bind Title}" 
                                        FontWeight="ExtraBold" 

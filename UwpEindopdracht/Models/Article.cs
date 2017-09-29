@@ -42,5 +42,11 @@ namespace UwpEindopdracht.Models
 			}
 			else { return false; }
 		}
+
+		public bool IsLoggedIn {
+			get {
+				return UserModel.Instance.IsLoggedIn;
+			}
+		}
 	}
 }

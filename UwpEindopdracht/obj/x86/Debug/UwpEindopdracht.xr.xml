@@ -3,11 +3,6 @@
   <Roots.Interfaces>
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
-  <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="VM" />
-    <RootPropertyPathName Name="User" />
-    <RootPropertyPathName Name="IsLoggedIn" />
-  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="RequestedTheme" />
@@ -15,6 +10,7 @@
     </RootType>
     <RootType FullName="UwpEindopdracht.Helpers.StringToVisibilityConverter" />
     <RootType FullName="UwpEindopdracht.Helpers.BooleanToVisibilityConverter" />
+    <RootType FullName="UwpEindopdracht.Helpers.BooleanToVisibilityConverterInverted" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>
@@ -117,10 +113,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="Converter" />
-      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="UwpEindopdracht.Views.MainPage" />
   </Roots.RootTypes>
