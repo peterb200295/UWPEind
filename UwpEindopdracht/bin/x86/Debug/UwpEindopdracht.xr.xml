@@ -4,6 +4,7 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="VM" />
     <RootPropertyPathName Name="User" />
     <RootPropertyPathName Name="IsLoggedIn" />
   </Roots.PropertyPathNames>
@@ -78,10 +79,11 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
-      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="FontFamily" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="CommandParameter" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="FontSize" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">

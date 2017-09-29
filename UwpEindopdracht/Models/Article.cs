@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UwpEindopdracht.Helpers;
 using UwpEindopdracht.Services;
 
 namespace UwpEindopdracht.Models
 {
-	public sealed class Article
-    {
+	public sealed class Article : NotifyBase
+	{
+		private bool isLiked;
+
         public int Id { get; set; }
         public int Feed { get; set; }
         public string Title { get; set; }
@@ -16,7 +19,17 @@ namespace UwpEindopdracht.Models
         public string Url { get; set; }
         public List<string> Related { get; set; }
         public List<Category> Categories { get; set; }
-        public bool IsLiked { get; set; }
+
+        public bool IsLiked {
+			get { return isLiked; }
+			set {
+				if (value != isLiked)
+				{
+					SetProperty(ref isLiked, value);
+					OnPropertyChanged("IsLiked");
+				}
+			}
+		}
 
 		public async Task<bool> LikeArticle()
 		{

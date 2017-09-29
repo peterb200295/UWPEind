@@ -10,8 +10,8 @@ V Must show a list of articles, most recent at the top
 V List should be listview with incremental loading
 V Of each article at least the picture and title must be shown
 V When clicking an article the application navigates the user to article detail page
-- User should be abled to log in
-- When logged in, the user is provided a way to like articles
+V User should be abled to log in
+V When logged in, the user is provided a way to like articles
 
 Functions Detailpage
 V Of the article the following must be shown: title, description, image, full article url
@@ -20,9 +20,9 @@ V Full article url should be clickable and should open the url in default browse
 V Back button should be a way to return to mainpage, not make a new instance of the mainpage
 
 Functions Optional
-- Create a way for the user to refresh the articles on the main page (pull to refresh, or some other way to refresh)  0.5
+V Create a way for the user to refresh the articles on the main page (pull to refresh, or some other way to refresh)  0.5
 - Allow the user to see a list of all his/her favorite articles (when the user is logged in) +1 
-- When the user is logged in, allow the user to log out. +0.5 
+V When the user is logged in, allow the user to log out. +0.5 
 - Store the users credentials in a secure manner, so the user does not need to log in every time the app starts. 
 	Remember to clear the stored credentials when the user logs out. +1 
 - Allow a user to register a new account. +0.5 

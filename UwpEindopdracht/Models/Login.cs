@@ -9,18 +9,11 @@ using UwpEindopdracht.Helpers;
 
 namespace UwpEindopdracht.Models
 {
-	public class UserModel : INotifyPropertyChanged
+	public class UserModel : NotifyBase
 	{
 		private string username;
 		private string password;
 		private string authToken;
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
 
 		public string UserName {
 			get { return username; }
@@ -28,7 +21,7 @@ namespace UwpEindopdracht.Models
 				if (value != username)
 				{
 					username = value;
-					NotifyPropertyChanged("UserName");
+					OnPropertyChanged("UserName");
 				}
 			}
 		}
@@ -39,7 +32,7 @@ namespace UwpEindopdracht.Models
 				if (value != password)
 				{
 					password = value;
-					NotifyPropertyChanged("Password");
+					OnPropertyChanged("Password");
 				}
 			}
 		}
@@ -49,8 +42,8 @@ namespace UwpEindopdracht.Models
 			set {	
 				if (value != authToken)
 				{
-					authToken = value;
-					NotifyPropertyChanged("AuthenticationToken");
+					SetProperty(ref authToken, value);
+					OnPropertyChanged("IsLoggedIn");
 				}
 			}
 		}
@@ -78,6 +71,26 @@ namespace UwpEindopdracht.Models
 			Password = "";
 			UserName = "";
 			AuthenticationToken = null;
+		}
+
+		public bool Logout()
+		{
+			try
+			{
+				if (IsLoggedIn)
+				{
+					Password = null;
+					AuthenticationToken = null;
+					UserName = null;
+				}
+				return true;
+
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			
 		}
 	}
 }

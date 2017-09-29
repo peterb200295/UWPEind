@@ -8,6 +8,7 @@ using Windows.UI.Popups;
 using UwpEindopdracht.Views;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
+using UwpEindopdracht.ViewModels;
 
 namespace UwpEindopdracht.Services
 {
@@ -23,6 +24,10 @@ namespace UwpEindopdracht.Services
 		{
 			using (var client = new HttpClient())
 			{
+				if (UserModel.Instance.IsLoggedIn)
+				{
+					client.DefaultRequestHeaders.Add("x-authtoken", UserModel.Instance.AuthenticationToken);
+				}
 				var json = await client.GetStringAsync(baseAPI + "Articles");
 				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
 				return result;
@@ -32,7 +37,7 @@ namespace UwpEindopdracht.Services
 
 		public static async Task<bool> LikeArticle(int articleID)
 		{
-			var uri = baseAPI + "Articles/" + articleID + "/like";
+			var uri = baseAPI + "Articles/" + articleID + "//like";
 			var authtoken = UserModel.Instance.AuthenticationToken;
 
 			if (string.IsNullOrWhiteSpace(authtoken))
@@ -64,10 +69,15 @@ namespace UwpEindopdracht.Services
 		{
 			using (var client = new HttpClient())
 			{
+				if (UserModel.Instance.IsLoggedIn)
+				{
+					client.DefaultRequestHeaders.Add("x-authtoken", UserModel.Instance.AuthenticationToken);
+				}
 				var json = await client.GetStringAsync(baseAPI + "Articles/" + nextId);
 				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
 				return result;
 			}
+
 		}
 
 		public static async void LoginUser(UserModel loginCredentials)
@@ -95,6 +105,7 @@ namespace UwpEindopdracht.Services
 						await dialogSucces.ShowAsync();
 						loginCredentials.Password = null;
 						((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+						NewsViewModel.SingleInstance.RefreshArticles();
 
 					}
 				}

@@ -12,15 +12,20 @@ namespace UwpEindopdracht.Helpers
 {
 	public abstract class NotifyBase : INotifyPropertyChanged
 	{
-			public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged;
 
-			protected async void OnPropertyChanged([CallerMemberName] string propName = "")
-			{
-				await Window.Current.Dispatcher.RunAsync(CoreDispatcherPriority.High,
-					() =>
-					{
-						PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-					});
-			}
+		protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+		{
+			if (Equals(field, value)) return false;
+
+			field = value;
+			OnPropertyChanged(propertyName);
+			return true;
+		}
+
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }

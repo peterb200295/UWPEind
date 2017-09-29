@@ -77,6 +77,16 @@ namespace UwpEindopdracht.Views
 				AppViewBackButtonVisibility.Collapsed;
 			MySplitView.IsPaneOpen = false;
 		}
+
+		private void LogoutButton_Click(object sender, RoutedEventArgs e)
+		{
+			VM.Logout();
+		}
+
+		private void RefreshButton_Click(object sender, RoutedEventArgs e)
+		{
+			VM.RefreshArticles();
+		}
 	}
 }
 //Used resources

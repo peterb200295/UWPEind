@@ -33,6 +33,7 @@ namespace UwpEindopdracht.ViewModels
 			ArticleOnClick = new RelayCommand(NavigateToDetailsPage);
 			ArticleLikeOnClick = new RelayCommand(LikeArticle);
 			LogIn = new RelayCommand(LogInUser);
+
 			User = UserModel.Instance;
 
 			Articles = new ObservableIncrementalLoadingCollection<Article>();
@@ -45,6 +46,7 @@ namespace UwpEindopdracht.ViewModels
 			if (loginCredentials == null) return;
 
 			Backend.LoginUser(loginCredentials);
+			RefreshArticles();
 		}
 
 		private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
@@ -79,6 +81,13 @@ namespace UwpEindopdracht.ViewModels
 			return list;
 
 		}
+
+		public void Logout()
+		{
+			var result = User.Logout();
+			RefreshArticles();
+		}
+
 		//public RelayCommand NavigateToSecondPageCommand { get; } = new RelayCommand(NavigateToSecondPage);
 
 		public void NavigateToDetailsPage(object article)
@@ -97,8 +106,16 @@ namespace UwpEindopdracht.ViewModels
 				if (!news.IsLiked)
 				{
 					var result = await news.LikeArticle();
+					RefreshArticles();
 				}
 			}
+		}
+
+		public async void RefreshArticles()
+		{
+			_nextId = -1;
+			Articles.Clear();// = new ObservableIncrementalLoadingCollection<Article>();
+			await Articles.LoadMoreItemsAsync(0);//Articles = await ListOfItemsOnLoadMoreItemsAsyncEvent(0);
 		}
 	}
 }

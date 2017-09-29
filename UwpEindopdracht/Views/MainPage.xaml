@@ -28,9 +28,12 @@
                     <TextBlock RelativePanel.RightOf="MenuButton" 
                                Margin="10, 15" Text="Menu yo" 
                                Foreground="White"/>
+                    
+
                 </RelativePanel>
                 <StackPanel Orientation="Vertical"
                             Margin="20"
+                            Visibility="Collapsed"
                             Grid.Row="1">
                     <TextBlock Text="Feeds" FontSize="20"></TextBlock>
                     <RadioButton>Algemeen</RadioButton>
@@ -57,6 +60,10 @@
                         <Button Margin="20 0">Registreer</Button>
                     </StackPanel>
                 </StackPanel>
+                <Button Grid.Row="2"
+                        Margin="20"
+                        Visibility="Visible"
+                        Click="LogoutButton_Click">Uitloggen</Button>
             </Grid>
         </SplitView.Pane>
         <SplitView.Content>
@@ -77,6 +84,17 @@
                     <TextBlock RelativePanel.RightOf="OptionsButton" 
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
+                    <Button Click="RefreshButton_Click"
+                            RelativePanel.RightOf="OptionsButton"
+                            HorizontalAlignment="Right"
+                            Margin="250 0 0 0"
+                            Height="50px"
+                            Width="80px"
+                            Foreground="White"
+                            FontSize="30"
+                            Content="*"
+                            Background="DeepPink">
+                    </Button>
                 </RelativePanel>
                 <ListView x:Name="ListView" 
                     ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" 
@@ -88,7 +106,7 @@
                             <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
                                 <Image Source="{x:Bind Image}" Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                                 <Button Click="LikeButton_Click"
-                                        Visibility="{Binding User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
+                                        Visibility="{Binding VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">Like</Button>
                                 <StackPanel Margin="20" MaxWidth="300">
                                     <TextBlock Text="{x:Bind Title}" 
                                        FontWeight="ExtraBold" 
