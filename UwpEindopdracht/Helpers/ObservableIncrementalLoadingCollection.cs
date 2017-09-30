@@ -28,7 +28,12 @@ namespace UwpEindopdracht.Helpers
             base.ClearItems();
         }
 
-        protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+		public void ClearEvents()
+		{
+			LoadMoreItemsAsyncEvent = null;
+		}
+
+		protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             _reachedEnd = false;
 
@@ -59,12 +64,9 @@ namespace UwpEindopdracht.Helpers
 								Add(item);
 							}
 						});
+						return new LoadMoreItemsResult { Count = (uint)response.Items.Count() };
 					}
-					//if (response.NextId <= 0) _reachedEnd = true;
-					//_nextId = response.NextId;
-
-					//TODO: Bij geen internet werkt deze niet
-					return new LoadMoreItemsResult { Count = (uint)response.Items.Count() };
+					return new LoadMoreItemsResult { Count = 0 };
 				}).AsAsyncOperation();
 			}
 			catch (Exception)

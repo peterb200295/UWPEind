@@ -74,7 +74,6 @@ namespace UwpEindopdracht.ViewModels
 			await dialog.ShowAsync();
 		}
 		
-		//TODO: ERRORHANDLING
 		private async Task<ObservableIncrementalLoadingCollection<Article>> ListOfItemsOnLoadMoreItemsAsyncEvent(int requestId)
 		{
 			ArticlesResult result = null;
@@ -87,25 +86,28 @@ namespace UwpEindopdracht.ViewModels
 				}
 				else
 					result = await Backend.GetDataFromBackendAsync(_nextId);
+
+				ObservableIncrementalLoadingCollection<Article> list = new ObservableIncrementalLoadingCollection<Article>();
+				foreach (var item in result.Results)
+				{
+					list.Add(item);
+				}
+				_nextId = result.NextId;
+				return list;
 			}
 			catch (Exception)
 			{
 				await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
 				{
-					var dialog = new MessageDialog("Er is een probleem opgetreden, probeer het opnieuw");
+					var dialog = new MessageDialog("Er is een probleem opgetreden met de verbinding, klik op de refresh knop op het opnieuw te proberen");
 					var a = dialog.ShowAsync();
 				}).AsTask();
+
+				Articles.ClearEvents();
+				//Articles.LoadMoreItemsAsyncEvent -= ListOfItemsOnLoadMoreItemsAsyncEvent;
+
 				return null;
 			}
-
-			ObservableIncrementalLoadingCollection<Article> list = new ObservableIncrementalLoadingCollection<Article>();
-			foreach (var item in result.Results)
-			{
-				list.Add(item);
-			}
-			_nextId = result.NextId;
-			return list;
-
 		}
 
 		public void Logout()
@@ -141,8 +143,12 @@ namespace UwpEindopdracht.ViewModels
 		public async void RefreshArticles()
 		{
 			_nextId = -1;
-			Articles.Clear();// = new ObservableIncrementalLoadingCollection<Article>();
-			await Articles.LoadMoreItemsAsync(0);//Articles = await ListOfItemsOnLoadMoreItemsAsyncEvent(0);
+			Articles.Clear();
+
+			Articles.ClearEvents();
+			Articles.LoadMoreItemsAsyncEvent += ListOfItemsOnLoadMoreItemsAsyncEvent;
+
+			await Articles.LoadMoreItemsAsync(0);
 		}
 	}
 }

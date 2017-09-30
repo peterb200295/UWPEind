@@ -162,6 +162,7 @@ namespace UwpEindopdracht.Views
             }
             private void Update_VM_Article(global::UwpEindopdracht.Models.Article obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_VM_Article(obj);
                 if (obj != null)
                 {
                     if ((phase & (NOT_PHASED | DATA_CHANGED | (1 << 0))) != 0)
@@ -234,8 +235,85 @@ namespace UwpEindopdracht.Views
 
                 public void ReleaseAllListeners()
                 {
+                    UpdateChildListeners_VM_Article(null);
                 }
 
+                public void PropertyChanged_VM_Article(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    ArticleDetails_obj1_Bindings bindings;
+                    if(WeakRefToBindingObj.TryGetTarget(out bindings))
+                    {
+                        string propName = e.PropertyName;
+                        global::UwpEindopdracht.Models.Article obj = sender as global::UwpEindopdracht.Models.Article;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                            if (obj != null)
+                            {
+                                    bindings.Update_VM_Article_Image(obj.Image, DATA_CHANGED);
+                                    bindings.Update_VM_Article_Title(obj.Title, DATA_CHANGED);
+                                    bindings.Update_VM_Article_Summary(obj.Summary, DATA_CHANGED);
+                                    bindings.Update_VM_Article_IsLiked(obj.IsLiked, DATA_CHANGED);
+                            }
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                case "Image":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_VM_Article_Image(obj.Image, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "Title":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_VM_Article_Title(obj.Title, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "Summary":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_VM_Article_Summary(obj.Summary, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "IsLiked":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_VM_Article_IsLiked(obj.IsLiked, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }
+                private global::UwpEindopdracht.Models.Article cache_VM_Article = null;
+                public void UpdateChildListeners_VM_Article(global::UwpEindopdracht.Models.Article obj)
+                {
+                    if (obj != cache_VM_Article)
+                    {
+                        if (cache_VM_Article != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_VM_Article).PropertyChanged -= PropertyChanged_VM_Article;
+                            cache_VM_Article = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_VM_Article = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_VM_Article;
+                        }
+                    }
+                }
             }
         }
         /// <summary>

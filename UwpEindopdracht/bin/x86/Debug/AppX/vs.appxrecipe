@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-29T17:17:11.759</Modified>
+      <Modified>2017-09-30T12:16:37.640</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
       <PackagePath>entrypoint\UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-29T17:17:11.468</Modified>
+      <Modified>2017-09-30T12:16:37.339</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -568,11 +568,11 @@
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-29T14:58:26.526</Modified>
+      <Modified>2017-09-30T12:13:58.126</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
       <PackagePath>UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-29T17:17:11.755</Modified>
+      <Modified>2017-09-30T12:16:37.637</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
