@@ -9,6 +9,12 @@
     mc:Ignorable="d">
     
     <SplitView x:ConnectionId='2' x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='3' x:Name="LayoutStates">
+                <VisualState x:ConnectionId='4' x:Name="PortraitState"/>
+                <VisualState x:ConnectionId='5' x:Name="LandscapeState"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <SplitView.Pane>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.RowDefinitions>
@@ -17,7 +23,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <RelativePanel Background="DeepPink" Grid.Row="0">
-                    <Button x:ConnectionId='8' x:Name="MenuButton" 
+                    <Button x:ConnectionId='11' x:Name="MenuButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
                             Height="50px" 
@@ -43,24 +49,25 @@
                     <RadioButton>Games</RadioButton>
                     <RadioButton>Wetenschap</RadioButton>
                 </StackPanel>
-                <StackPanel x:ConnectionId='3' Grid.Row="2" 
+                <StackPanel x:ConnectionId='6' Grid.Row="2" 
                             Margin="20"
                                                                                                                                           >
                     <TextBlock FontSize="20" Margin="0 10">Log In</TextBlock>
-                    <TextBox x:ConnectionId='5' PlaceholderText="Email"
+                    <TextBox x:ConnectionId='8' PlaceholderText="Gebruikersnaam"
                              Margin="0 10"
                              x:Name="textb_Email"></TextBox>
-                    <PasswordBox x:ConnectionId='6' PlaceholderText="Wachtwoord"
+                    <PasswordBox x:ConnectionId='9' PlaceholderText="Wachtwoord"
                              Margin="0 10"
                              x:Name="textb_Password"></PasswordBox>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:ConnectionId='7'                          
+                        <Button x:ConnectionId='10'                          
                                 CommandParameter=""
                             HorizontalAlignment="Left">Log in</Button>
-                        <Button Margin="20 0">Registreer</Button>
+                        <Button Margin="20 0" 
+                                Visibility="Collapsed">Registreer</Button>
                     </StackPanel>
                 </StackPanel>
-                <Button x:ConnectionId='4' Grid.Row="2"
+                <Button x:ConnectionId='7' Grid.Row="2"
                         Margin="20"
                         Visibility="Visible"
                                                   >Uitloggen</Button>
@@ -73,7 +80,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <RelativePanel Background="DeepPink" Grid.Row="0">
-                    <Button x:ConnectionId='15' x:Name="OptionsButton" 
+                    <Button x:ConnectionId='18' x:Name="OptionsButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
                             Height="50px" 
@@ -84,7 +91,7 @@
                     <TextBlock RelativePanel.RightOf="OptionsButton" 
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
-                    <Button x:ConnectionId='16'                            
+                    <Button x:ConnectionId='19'                            
                             RelativePanel.RightOf="OptionsButton"
                             HorizontalAlignment="Right"
                             Margin="250 0 0 0"
@@ -96,26 +103,43 @@
                             Background="DeepPink">
                     </Button>
                 </RelativePanel>
-                <ListView x:ConnectionId='9' x:Name="ListView" 
+                <ListView x:ConnectionId='12' x:Name="ListView" 
                                                                     
                     Grid.Row="1" 
                     IsItemClickEnabled="True"
                                                 >
                     <ListView.ItemTemplate>
                         <DataTemplate                            >
-                            <StackPanel x:ConnectionId='10' Orientation="Horizontal" Margin="0 0 20 0">
-                                <Image x:ConnectionId='11'                         Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Button x:ConnectionId='12'                         
+                            <Grid x:ConnectionId='13'>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <RelativePanel Margin="0 0 0 0"
+                                           Grid.Column="0">
+                                    <Image x:ConnectionId='16' x:Name="ListImage" 
+                                                                   
+                                           MaxWidth="200"
+                                           Stretch="UniformToFill"
+                                           MinHeight="60"
+                                           MaxHeight="200"/>
+                                    <Button x:ConnectionId='17'                         
+                                        RelativePanel.AlignBottomWithPanel="True"
+                                        RelativePanel.AlignRightWith="ListImage"
                                                                                                                                                       >Like</Button>
-                                <StackPanel Margin="20" MaxWidth="300">
-                                    <TextBlock x:ConnectionId='13'                       
+                                </RelativePanel>
+                                <StackPanel Margin="20" 
+                                            Grid.Column="1"
+                                            >
+                                    <TextBlock x:ConnectionId='14'                       
                                        FontWeight="ExtraBold" 
                                        FontSize="20" 
                                        TextWrapping="WrapWholeWords"/>
-                                    <TextBlock x:ConnectionId='14'                         
+                                    <TextBlock x:ConnectionId='15'                         
                                        TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
-                            </StackPanel>
+                            </Grid>
+                            
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

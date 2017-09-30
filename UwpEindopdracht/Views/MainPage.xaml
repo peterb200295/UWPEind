@@ -7,14 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:UwpEindopdracht.Models"
     mc:Ignorable="d">
-    
+
     <SplitView x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False">
         <SplitView.Pane>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <RelativePanel Background="DeepPink" Grid.Row="0">
                     <Button x:Name="MenuButton" 
@@ -24,68 +24,69 @@
                             Width="50px" 
                             Click="OnHamburgerClick"
                             Foreground="White" 
-                            Background="DeepPink"></Button>
+                            Background="DeepPink"/>
                     <TextBlock RelativePanel.RightOf="MenuButton" 
                                Margin="10, 15" Text="Menu yo" 
                                Foreground="White"/>
-                    
+
 
                 </RelativePanel>
                 <StackPanel Orientation="Vertical"
                             Margin="20"
                             Visibility="Collapsed"
                             Grid.Row="1">
-                    <TextBlock Text="Feeds" FontSize="20"></TextBlock>
-                    <RadioButton>Algemeen</RadioButton>
-                    <RadioButton>Internet</RadioButton>
-                    <RadioButton>Sport</RadioButton>
-                    <RadioButton>Opmerkelijk</RadioButton>
-                    <RadioButton>Games</RadioButton>
-                    <RadioButton>Wetenschap</RadioButton>
+                    <TextBlock Text="Feeds" FontSize="20"/>
+                    <RadioButton Content="Algemeen"/>
+                    <RadioButton Content="Internet"/>
+                    <RadioButton Content="Sport"/>
+                    <RadioButton Content="Opmerkelijk"/>
+                    <RadioButton Content="Games"/>
+                    <RadioButton Content="Wetenschap"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2" 
                             Margin="20"
                             Visibility="{x:Bind VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}">
-                    <TextBlock FontSize="20" Margin="0 10">Log In</TextBlock>
+                    <TextBlock FontSize="20" Margin="0 10">
+                        <Run Text="Log In"/>
+                    </TextBlock>
                     <TextBox PlaceholderText="Gebruikersnaam"
                              Margin="0 10"
-                             x:Name="textb_Email"></TextBox>
+                             x:Name="textb_Email"/>
                     <PasswordBox PlaceholderText="Wachtwoord"
                              Margin="0 10"
-                             x:Name="textb_Password"></PasswordBox>
+                             x:Name="textb_Password"/>
                     <StackPanel Orientation="Horizontal">
                         <Button Click="LoginButton_Click"
                                 CommandParameter=""
-                            HorizontalAlignment="Left">Log in</Button>
+                            HorizontalAlignment="Left" Content="Log in"/>
                         <Button Margin="20 0" 
-                                Visibility="Collapsed">Registreer</Button>
+                                Visibility="Collapsed" Content="Registreer"/>
                     </StackPanel>
                 </StackPanel>
                 <Button Grid.Row="2"
                         Margin="20"
                         Visibility="Visible"
-                        Click="LogoutButton_Click">Uitloggen</Button>
+                        Click="LogoutButton_Click" Content="Uitloggen"/>
             </Grid>
         </SplitView.Pane>
-        <SplitView.Content>
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <RelativePanel Background="DeepPink" Grid.Row="0">
-                    <Button x:Name="OptionsButton" 
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RelativePanel Background="DeepPink" Grid.Row="0">
+                <Button x:Name="OptionsButton" 
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE700;" 
                             Height="50px" 
                             Width="50px" 
                             Click="OnHamburgerClick"
                             Foreground="White" 
-                            Background="DeepPink"></Button>
-                    <TextBlock RelativePanel.RightOf="OptionsButton" 
+                            Background="DeepPink"/>
+                <TextBlock RelativePanel.RightOf="OptionsButton" 
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
-                    <Button Click="RefreshButton_Click"
+                <Button Click="RefreshButton_Click"
                             RelativePanel.RightOf="OptionsButton"
                             HorizontalAlignment="Right"
                             Margin="250 0 0 0"
@@ -94,34 +95,49 @@
                             Foreground="White"
                             FontSize="30"
                             Content="*"
-                            Background="DeepPink">
-                    </Button>
-                </RelativePanel>
-                <ListView x:Name="ListView" 
+                            Background="DeepPink"/>
+            </RelativePanel>
+            <ListView x:Name="ListView" 
                     ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" 
                     Grid.Row="1" 
                     IsItemClickEnabled="True"
                     ItemClick="ArticleSelection">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Article">
-                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
-                                <Image Source="{x:Bind Image}" Width="80" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Article">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <RelativePanel Margin="0 0 0 0"
+                                           Grid.Column="0">
+                                <Image x:Name="ListImage" 
+                                           Source="{x:Bind Image}" 
+                                           MaxWidth="200"
+                                           Stretch="UniformToFill"
+                                           MinHeight="60"
+                                           MaxHeight="200"/>
                                 <Button Click="LikeButton_Click"
-                                        Visibility="{x:Bind IsLoggedIn, Converter={StaticResource booleanToVisibilityConverterInverted}, Mode=OneWay}">Like</Button>
-                                <StackPanel Margin="20" MaxWidth="300">
-                                    <TextBlock Text="{x:Bind Title}" 
+                                        RelativePanel.AlignBottomWithPanel="True"
+                                        RelativePanel.AlignRightWith="ListImage"
+                                        Visibility="{x:Bind IsLoggedIn, Converter={StaticResource booleanToVisibilityConverterInverted}, Mode=OneWay}" Content="Like"/>
+                            </RelativePanel>
+                            <StackPanel Margin="20" 
+                                            Grid.Column="1"
+                                            >
+                                <TextBlock Text="{x:Bind Title}" 
                                        FontWeight="ExtraBold" 
                                        FontSize="20" 
                                        TextWrapping="WrapWholeWords"/>
-                                    <TextBlock Text="{x:Bind Summary}" 
+                                <TextBlock Text="{x:Bind Summary}" 
                                        TextWrapping="WrapWholeWords"/>
-                                </StackPanel>
                             </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-        </SplitView.Content>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </SplitView>
-    
+
 </Page>
