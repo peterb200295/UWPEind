@@ -125,7 +125,6 @@ namespace UwpEindopdracht.ViewModels
 			((Frame)Window.Current.Content).Navigate(typeof(ArticleDetails), news);
 		}
 
-		//TODO: ERRORHANDLING
 		public async void LikeArticle(object article)
 		{
 			Article news = (Article)article;
@@ -134,8 +133,17 @@ namespace UwpEindopdracht.ViewModels
 			{
 				if (!news.IsLiked)
 				{
-					var result = await news.LikeArticle();
-					RefreshArticles();
+					try
+					{
+						var result = await news.LikeArticle();
+						RefreshArticles();
+					}
+					catch (Exception)
+					{
+						ShowPopup("Er lijkt een probleem opgetreden te zijn. Probeer het later opnieuw.");
+						return;
+					}
+					
 				}
 			}
 		}
