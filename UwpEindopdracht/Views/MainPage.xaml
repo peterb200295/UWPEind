@@ -26,7 +26,7 @@
                             Foreground="White" 
                             Background="DeepPink"/>
                     <TextBlock RelativePanel.RightOf="MenuButton" 
-                               Margin="10, 15" Text="Menu yo" 
+                               Margin="10, 15" Text="Menu" 
                                Foreground="White"/>
 
 
@@ -76,7 +76,7 @@
                 </StackPanel>
                 <Button Grid.Row="2"
                         Margin="20"
-                        Visibility="Visible"
+                        Visibility="{x:Bind VM.User.IsLoggedIn, Converter={StaticResource booleanToVisibilityConverterInverted}, Mode=OneWay}"
                         Click="LogoutButton_Click" Content="Uitloggen"/>
             </Grid>
         </SplitView.Pane>
