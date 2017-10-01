@@ -7,11 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LayoutStates">
+                <VisualState x:Name="PortraitState"/>
+                <VisualState x:Name="LandscapeState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="scrollViewer.(RelativePanel.Below)" Value=""/>
+                        <Setter Target="scrollViewer.(RelativePanel.RightOf)" Value="ArticleImage"/>
+                        <Setter Target="ArticleImage.(FrameworkElement.Height)" Value="NaN"/>
+                        <Setter Target="ArticleImage.(FrameworkElement.Width)" Value="200"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
         <RelativePanel Background="DeepPink" Grid.Row="0">
             <Button x:Name="BackButton" 
@@ -23,37 +38,38 @@
                     Background="DeepPink"/>
             <TextBlock RelativePanel.RightOf="BackButton" Margin="10, 15" Text="Inholland News Reader" Foreground="White"/>
         </RelativePanel>
-        <Image Source="{x:Bind VM.Article.Image, Mode=OneWay}" 
+        <RelativePanel Grid.Row="1">
+            <Image x:Name="ArticleImage"
+               Source="{x:Bind VM.Article.Image, Mode=OneWay}" 
                Grid.Row="1"
+                   Height="170"
                Stretch="UniformToFill" 
                HorizontalAlignment="Left"
                />
-        <ScrollViewer Grid.Row="2"
-                        HorizontalScrollMode="Disabled" 
-                        HorizontalScrollBarVisibility="Disabled"
-                        VerticalScrollMode="Enabled"
-                      VerticalScrollBarVisibility="Auto">
-            <StackPanel  Padding="15" 
-                         ScrollViewer.HorizontalScrollMode="Disabled"
+            <ScrollViewer x:Name="scrollViewer" RelativePanel.Below="ArticleImage"
+                          HorizontalScrollMode="Disabled" 
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollMode="Enabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel  Padding="15" 
                         >
-                <TextBlock Text="{x:Bind VM.Article.Title, Mode=OneWay}"
-                       Grid.Row="2"
+                    <TextBlock Text="{x:Bind VM.Article.Title, Mode=OneWay}"
                            TextWrapping="WrapWholeWords"
                        FontSize="25"/>
-                <TextBlock Text="{x:Bind VM.Article.Summary, Mode=OneWay}"
-                           TextWrapping="WrapWholeWords"
-                       Grid.Row="2"/>
-                <HyperlinkButton Command="{x:Bind VM.OpenArticle}"
+                    <TextBlock Text="{x:Bind VM.Article.Summary, Mode=OneWay}"
+                           TextWrapping="WrapWholeWords"/>
+                    <HyperlinkButton Command="{x:Bind VM.OpenArticle}"
                                  CommandParameter="{x:Bind VM.Article.Url}">
-                    Lees meer!
-                </HyperlinkButton>
-                <Button Content="Like artikel" 
+                        Lees meer!
+                    </HyperlinkButton>
+                    <Button Content="Like artikel" 
+                            Visibility="Collapsed"
                         HorizontalAlignment="Stretch"/>
-                <TextBlock Text="{x:Bind VM.Article.IsLiked, Mode=OneWay}"
-                       Grid.Row="2"
+                    <TextBlock Text="{x:Bind VM.Article.IsLiked, Mode=OneWay}"
+                               Visibility="Collapsed"
                        Margin="10 0"/>
-            </StackPanel>
-        </ScrollViewer>
-
+                </StackPanel>
+            </ScrollViewer>
+        </RelativePanel>
     </Grid>
 </Page>

@@ -31,6 +31,16 @@
 
 
                 </RelativePanel>
+                <Button Click="RefreshButton_Click"
+                            RelativePanel.RightOf="OptionsButton"
+                            HorizontalAlignment="Right"
+                            Height="50px"
+                            Foreground="Black"
+                        Content="Ververs overzicht"
+                            FontSize="15"
+                            Background="white"
+                        Grid.Row="1"/>
+
                 <StackPanel Orientation="Vertical"
                             Margin="20"
                             Visibility="Collapsed"
@@ -86,16 +96,7 @@
                 <TextBlock RelativePanel.RightOf="OptionsButton" 
                                Margin="10, 15" Text="Inholland News Reader" 
                                Foreground="White"/>
-                <Button Click="RefreshButton_Click"
-                            RelativePanel.RightOf="OptionsButton"
-                            HorizontalAlignment="Right"
-                            Margin="250 0 0 0"
-                            Height="50px"
-                            Width="80px"
-                            Foreground="White"
-                            FontSize="30"
-                            Content="*"
-                            Background="DeepPink"/>
+                
             </RelativePanel>
             <ListView x:Name="ListView" 
                     ItemsSource="{x:Bind VM.Articles, Mode=OneWay}" 
@@ -118,6 +119,7 @@
                                            MinHeight="60"
                                            MaxHeight="200"/>
                                 <Button Click="LikeButton_Click"
+                                        Background="{x:Bind IsLiked, Converter={StaticResource booleanToColorConverter}, Mode=OneWay}"
                                         RelativePanel.AlignBottomWithPanel="True"
                                         RelativePanel.AlignRightWith="ListImage"
                                         Visibility="{x:Bind IsLoggedIn, Converter={StaticResource booleanToVisibilityConverterInverted}, Mode=OneWay}" Content="Like"/>

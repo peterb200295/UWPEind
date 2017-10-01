@@ -136,7 +136,6 @@ namespace UwpEindopdracht.ViewModels
 					try
 					{
 						var result = await news.LikeArticle();
-						RefreshArticles();
 					}
 					catch (Exception)
 					{

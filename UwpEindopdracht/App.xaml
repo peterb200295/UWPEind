@@ -7,8 +7,8 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-        <common:StringToVisibilityConverter x:Key="stringVisibilityConverter"/>
         <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
         <common:BooleanToVisibilityConverterInverted x:Key="booleanToVisibilityConverterInverted"/>
+        <common:BooleanToColorConverter x:Key="booleanToColorConverter"/>
     </Application.Resources>
 </Application>
