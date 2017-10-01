@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-30T23:57:54.162</Modified>
+      <Modified>2017-10-01T10:44:34.798</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.exe">
       <PackagePath>entrypoint\UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-30T23:57:53.588</Modified>
+      <Modified>2017-10-01T10:44:33.787</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Peter\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -519,9 +519,9 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T21:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\Reload.png">
-      <PackagePath>Assets\Reload.png</PackagePath>
-      <Modified>2017-09-30T23:27:29.881</Modified>
+    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -557,13 +557,9 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-16T19:47:45.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-09-16T19:47:45.495</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\UwpEindopdracht.xr.xml">
       <PackagePath>UwpEindopdracht.xr.xml</PackagePath>
-      <Modified>2017-09-30T23:42:25.327</Modified>
+      <Modified>2017-10-01T09:52:59.463</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -572,11 +568,11 @@
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-30T23:57:53.981</Modified>
+      <Modified>2017-10-01T10:44:34.354</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\School\Repos\UWP opdracht\UwpEindopdracht\bin\x86\Debug\Core\UwpEindopdracht.exe">
       <PackagePath>UwpEindopdracht.exe</PackagePath>
-      <Modified>2017-09-30T23:57:54.159</Modified>
+      <Modified>2017-10-01T10:44:34.782</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

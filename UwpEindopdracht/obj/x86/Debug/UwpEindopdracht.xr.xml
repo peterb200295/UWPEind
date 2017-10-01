@@ -106,7 +106,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="CommandParameter" />
       <RootProperty Name="FontFamily" />
       <RootEvent Name="Click" />
     </RootType>

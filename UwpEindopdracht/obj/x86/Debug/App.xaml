@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="UwpEindopdracht.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpEindopdracht"
+    xmlns:common="using:UwpEindopdracht.Helpers"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+        <common:BooleanToVisibilityConverterInverted x:Key="booleanToVisibilityConverterInverted"/>
+        <common:BooleanToColorConverter x:Key="booleanToColorConverter"/>
+    </Application.Resources>
+</Application>
+

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System;
 using UwpEindopdracht.Models;
 using System.Collections.Generic;
-using Windows.UI.Popups;
 using UwpEindopdracht.Views;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
@@ -12,30 +11,38 @@ using UwpEindopdracht.ViewModels;
 
 namespace UwpEindopdracht.Services
 {
-	static class Backend
+    static class Backend
 	{
 		private static readonly string baseAPI = "http://inhollandbackend.azurewebsites.net/api/";
 
-		/// <summary>
-		/// Get articles Async for first load
+        /// <summary>
+		/// Get articles Async for incremental loading
+        /// Optional parameter. When 0 or null it is ignored
 		/// </summary>
-		/// <returnsArticlesResult></returns>
-		public static async Task<ArticlesResult> GetDataFromBackendAsync()
-		{
-			using (var client = new HttpClient())
-			{
-				if (UserModel.Instance.IsLoggedIn)
-				{
-					client.DefaultRequestHeaders.Add("x-authtoken", UserModel.Instance.AuthenticationToken);
-				}
-				var json = await client.GetStringAsync(baseAPI + "Articles");
-				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
-				return result;
-			}
+		/// <param name="nextId"></param>
+		/// <returns></returns>
+		public static async Task<ArticlesResult> GetDataFromBackendAsync(int? nextId)
+        {
+            string api = baseAPI + "Articles/";
 
-		}
+            using (var client = new HttpClient())
+            {
+                if (UserModel.Instance.IsLoggedIn)
+                {
+                    client.DefaultRequestHeaders.Add("x-authtoken", UserModel.Instance.AuthenticationToken);
+                }
 
-		public static async Task<bool> LikeArticle(int articleID)
+                if (nextId.HasValue && nextId.Value > 0)
+                {
+                    api = api + nextId.Value + "?count=20";
+                }
+                var json = await client.GetStringAsync(api);
+                var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
+                return result;
+            }
+        }
+
+        public static async Task<bool> LikeArticle(int articleID)
 		{
 			var uri = baseAPI + "Articles/" + articleID + "//like";
 			var authtoken = UserModel.Instance.AuthenticationToken;
@@ -60,26 +67,6 @@ namespace UwpEindopdracht.Services
 			}
 		}
 
-		/// <summary>
-		/// Get articles Async for incremental loading
-		/// </summary>
-		/// <param name="nextId"></param>
-		/// <returns></returns>
-		public static async Task<ArticlesResult> GetDataFromBackendAsync(int nextId)
-		{
-			using (var client = new HttpClient())
-			{
-				if (UserModel.Instance.IsLoggedIn)
-				{
-					client.DefaultRequestHeaders.Add("x-authtoken", UserModel.Instance.AuthenticationToken);
-				}
-				var json = await client.GetStringAsync(baseAPI + "Articles/" + nextId);
-				var result = JsonConvert.DeserializeObject<ArticlesResult>(json);
-				return result;
-			}
-
-		}
-
 		public static async Task<bool> LoginUser(UserModel loginCredentials)
 		{
 			using (var client = new HttpClient())
@@ -94,7 +81,6 @@ namespace UwpEindopdracht.Services
 
 						if (string.IsNullOrWhiteSpace(token))
 						{
-							
 							return false;
 						}
 
@@ -111,8 +97,32 @@ namespace UwpEindopdracht.Services
 					}
 				}
 			}
-
-
 		}
-	}
+
+        public static async Task<bool> RegisterUser(UserModel loginCredentials)
+        {
+            using (var client = new HttpClient())
+            {
+                var parameters = new Dictionary<string, string> { { "username", loginCredentials.UserName }, { "password", loginCredentials.Password } };
+
+                using (var content = new FormUrlEncodedContent(parameters))
+                {
+                    using (var response = await client.PostAsync(baseAPI + "Users/Register", content))
+                    {
+                        var succesResponse = await response.Content.ReadAsStringAsync();
+
+                        ResultRegister result = JsonConvert.DeserializeObject<ResultRegister>(succesResponse);
+
+                        if (result != null && !result.Success)
+                        {
+                            return false;
+                        }
+
+                        loginCredentials.Password = null;
+                        return true;
+                    }
+                }
+            }
+        }
+    }
 }

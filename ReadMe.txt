@@ -1,6 +1,6 @@
 Functions General
-- Responsive
-- Works on all devices
+V Responsive
+V Works on all devices
 V Error handling, may not crash for example when no internetconnection is established
 V Back button must be present for phones 
 V MVVM pattern must be implemented
@@ -25,7 +25,7 @@ V Create a way for the user to refresh the articles on the main page (pull to re
 V When the user is logged in, allow the user to log out. +0.5 
 - Store the users credentials in a secure manner, so the user does not need to log in every time the app starts. 
 	Remember to clear the stored credentials when the user logs out. +1 
-- Allow a user to register a new account. +0.5 
+V Allow a user to register a new account. +0.5 
 - Allow the user to filter the articles based on news feed. +1 
 - On the details page, show all properties of an article (timestamp, related articles, categories) +0.5 
 - On the details page, allow the user to select a category. When the user selects a category, a list of articles 

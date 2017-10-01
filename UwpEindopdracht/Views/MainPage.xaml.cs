@@ -87,7 +87,22 @@ namespace UwpEindopdracht.Views
 		{
 			VM.RefreshArticles();
 		}
-	}
+
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserModel.Instance.UserName = textb_Email.Text;
+            UserModel.Instance.Password = textb_Password.Password;
+
+            if (!UserModel.Instance.IsValid())
+            {
+                var dialog = new MessageDialog("Voer uw gegevens in");
+                await dialog.ShowAsync();
+                return;
+            }
+
+            VM.Register.Execute(UserModel.Instance);
+        }
+    }
 }
 //Used resources
 // - Hamburgermenu http://www.shenchauhan.com/blog/2015/7/14/creating-a-responsive-uwp-application

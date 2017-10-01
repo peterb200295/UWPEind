@@ -107,6 +107,7 @@
     <Compile Include="Services\ArticlesResult.cs" />
     <Compile Include="Services\BackEnd.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Services\ResultRegister.cs" />
     <Compile Include="ViewModels\ArticleDetailViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="Views\ArticleDetails.xaml.cs">
